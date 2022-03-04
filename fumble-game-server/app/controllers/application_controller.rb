@@ -4,6 +4,15 @@ class ApplicationController < Sinatra::Base
     get "/" do
       "Hello world!"
     end
+
+    get "/players" do
+    end
+
+    get "/scores" do
+    end
+
+    get "/game_modes" do
+    end
     
   end
   
