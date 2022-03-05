@@ -3,7 +3,7 @@ import {Link} from "react-router-dom"
 
 function Menu() {
   return (
-    <div>Menu
+    <div>
       <Link to="/clicksequence">Click Sequence</Link>
       <Link to="/lettersequence">Letter Sequence</Link>
       <Link to="/numbersequence">Number Sequence</Link>

@@ -5,16 +5,15 @@ import Menu from "./Menu";
 import ClickSequence from "./ClickSequence";
 import LetterSequence from "./LetterSequence";
 import NumberSequence from "./NumberSequence";
+import HighScores from "./HighScores";
 
 function App() {
   return (
     <div>
       <Navbar/>
+      <Menu />
 
       <Switch>
-        <Route path="/menu">
-          <Menu />
-        </Route>
         <Route path="/clicksequence">
           <ClickSequence />
         </Route>
@@ -24,6 +23,9 @@ function App() {
         <Route path="/numbersequence">
           <NumberSequence />
         </Route>
+        <Route path="/highscores">
+          <HighScores />
+          </Route>
       </Switch>
     </div>
   );

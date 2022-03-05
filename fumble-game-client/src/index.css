@@ -5,9 +5,74 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  text-align: center;
 }
 
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
+}
+
+.click-tile {
+  background: transparent;
+  border: none;
+  width: 100px;
+  height: 100px;
+  background: blue;
+  margin: 10px;
+}
+
+.click-tile:active {
+  background: skyblue;
+}
+
+.click-tile-1 {
+  animation: randomAnimate 0.5s
+}
+
+.click-tile-2 {
+  animation: randomAnimate 0.5s
+}
+
+.click-tile-3 {
+  animation: randomAnimate 0.5s
+}
+
+.click-tile-4 {
+  animation: randomAnimate 0.5s
+}
+
+.click-tile-5 {
+  animation: randomAnimate 0.5s
+}
+
+.click-tile-6 {
+  animation: randomAnimate 0.5s
+}
+
+.click-tile-7 {
+  animation: randomAnimate 0.5s
+}
+
+.click-tile-8 {
+  animation: randomAnimate 0.5s
+}
+
+.click-tile-9 {
+  animation: randomAnimate 0.5s
+}
+
+@keyframes randomAnimate {
+  0% {
+    background: skyblue;
+  }
+  100% {
+    background: skyblue;
+  }
+}
+
+.click-tile-container {
+  justify-content: center;
+  display: grid;
+  grid-template-columns: auto auto auto;
 }

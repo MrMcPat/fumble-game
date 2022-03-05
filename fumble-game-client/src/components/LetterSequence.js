@@ -1,8 +1,11 @@
 import React from 'react'
+import LetterTile from "./LetterTile"
 
 function LetterSequence() {
   return (
-    <div>LetterSequence</div>
+    <div>LetterSequence
+      <LetterTile />
+    </div>
   )
 }
 

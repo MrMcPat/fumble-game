@@ -1,8 +1,11 @@
 import React from 'react'
+import NumberTile from "./NumberTile"
 
 function NumberSequence() {
   return (
-    <div>NumberSequence</div>
+    <div>NumberSequence
+      <NumberTile />
+    </div>
   )
 }
 
