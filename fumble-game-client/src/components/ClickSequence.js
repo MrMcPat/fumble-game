@@ -7,6 +7,7 @@ function ClickSequence() {
   const [clickedSequence, setClickedSequence] = useState([])
   const [counter, setCounter] = useState(0)
   const [disable, setDisable] = useState(false)
+  const [correct, setCorrect] = useState(true)
 
   const tileCount = [1, 2, 3, 4, 5, 6, 7, 8, 9]
   const randomNumber = Math.floor(Math.random()*9)+1
@@ -18,6 +19,7 @@ function ClickSequence() {
     setClickedSequence([])
     setCounter(counter+1)
     setDisable(true)
+    setCorrect(true)
   }
 
   function handleClickedNumber(clickedNum) {
@@ -25,16 +27,17 @@ function ClickSequence() {
   }
 
   console.log(clickedSequence)
-  console.log(randomSequence)
+  console.log(randomSequence)  
   
   if (clickedSequence.length == randomSequence.length && clickedSequence.length != 0) {
-    handleRandomNumber()
-    for(let i = 0; i < counter; i++) {
+      handleRandomNumber()
+    for(let i = 0; i < clickedSequence.length; i++) {
       if (clickedSequence[i] !== randomSequence[i]) {
         setRandomSequence([])
         setClickedSequence([])
         setCounter(0)
         setDisable(false)
+        setCorrect(false)
         console.log("WRONG!")
       }
     }
@@ -46,7 +49,7 @@ function ClickSequence() {
 
   return (
     <div>
-      <h3>{levelTitle}</h3>
+      <h3>{correct ? levelTitle : "WRONG! TRY AGAIN"}</h3>
       <button disabled={disable} onClick={handleRandomNumber}>Start!</button>
     <div className="click-tile-container">
       {tileGrid}

@@ -1,8 +1,8 @@
 import React from 'react'
 
-function NumberTile() {
+function NumberTile({number}) {
   return (
-    <div>NumberTile</div>
+    <div>{number}</div>
   )
 }
 
