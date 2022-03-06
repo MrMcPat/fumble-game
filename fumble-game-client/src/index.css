@@ -15,62 +15,6 @@ code {
     monospace;
 }
 
-.click-tile {
-  background: transparent;
-  border: none;
-  border-radius: 15%;
-  width: 100px;
-  height: 100px;
-  background: #94DAFF;
-  margin: 10px;
-}
-
-.click-tile:hover {
-  transform: scale(1.1);
-  transition-duration: .2s
-}
-
-.click-tile:active {
-  background: #FBF8F1;
-
-}
-
-.click-tile-1 {
-  animation: randomAnimate 0.5s
-}
-
-.click-tile-2 {
-  animation: randomAnimate 0.5s
-}
-
-.click-tile-3 {
-  animation: randomAnimate 0.5s
-}
-
-.click-tile-4 {
-  animation: randomAnimate 0.5s
-}
-
-.click-tile-5 {
-  animation: randomAnimate 0.5s
-}
-
-.click-tile-6 {
-  animation: randomAnimate 0.5s
-}
-
-.click-tile-7 {
-  animation: randomAnimate 0.5s
-}
-
-.click-tile-8 {
-  animation: randomAnimate 0.5s
-}
-
-.click-tile-9 {
-  animation: randomAnimate 0.5s
-}
-
 @keyframes randomAnimate {
   0% {
     background: #94DAFF;
@@ -81,128 +25,74 @@ code {
   }
 }
 
-.click-tile-container {
+.threebythree-tile {
+  background: transparent;
+  border: none;
+  border-radius: 15%;
+  width: 100px;
+  height: 100px;
+  background: #94DAFF;
+  margin: 10px;
+}
+
+.threebythree-tile:hover {
+  transform: scale(.975);
+}
+
+.threebythree-tile:active {
+  background: #5D8BF4;
+}
+
+.threexthree-tile-container {
   justify-content: center;
   display: grid;
   grid-template-columns: auto auto auto;
 }
 
-body {
-  display: flex;
+.fourbyfour-tile {
+  background: transparent;
+  border: none;
+  border-radius: 15%;
+  width: 75px;
+  height: 75px;
+  background: #94DAFF;
+  margin: 5px;
+}
+
+.fourbyfour-tile:hover {
+  transform: scale(.975);
+}
+
+.fourbyfour-tile:active {
+  background: #5D8BF4;
+}
+
+.fourxfour-tile-container {
   justify-content: center;
-  align-items: center;
-  height: 97vh;
-}
-span {
-  -webkit-user-select: none;
-     -moz-user-select: none;
-      -ms-user-select: none;
-          user-select: none;
+  display: grid;
+  grid-template-columns: auto auto auto auto;
 }
 
-.letter-tile-container {
-  border-radius: 10px;
-  background: #272B2C;
-  display: flex;
-  width: 700px;
-  height: auto;
-  flex-direction: column;
-  padding: 30px 15px;
-  font: 28px arial;
-  /* box-shadow: 0px 40px 45px rgba(0, 0, 0, .4); */
+.fivebyfive-tile {
+  background: transparent;
+  border: none;
+  border-radius: 15%;
+  width: 60px;
+  height: 60px;
+  background: #94DAFF;
+  margin: 2.5px;
 }
 
-.number-tile-container {
-  border-radius: 10px;
-  background: #272B2C;
-  display: flex;
-  width: 300px;
-  height: auto;
-  flex-direction: column;
-  padding: 30px 15px;
-  font: 28px arial;
-  /* box-shadow: 0px 40px 45px rgba(0, 0, 0, .4); */
+.fivebyfive-tile:hover {
+  transform: scale(.975);
 }
 
-div[class*='line'] {
-  display: flex;
-  justify-content: space-around;
+.fivebyfive-tile:active {
+  background: #5D8BF4;
 }
 
-div[class*='line'] + div[class*='line'] {
-  margin-top: 15px;
+.fivebyfive-tile-container {
+  justify-content: center;
+  display: grid;
+  grid-template-columns: auto auto auto auto auto;
 }
-
-.line1,
-.line3 {
-  padding: 0 15px;
-}
-
-.line2 {
-  padding: 0 15px;
-}
-
-div[class*='line'] span {
-  box-shadow: 0px 3px 3px rgba(0, 0, 0, .7);
-  color: #71D4FE;
-  padding: 15px;
-  background: #2F3336;
-  border-radius: 12px;
-  text-shadow: 0px 0px 40px #71D4FE, 0px 0px 80px #71D4FE;
-  width: 25px;
-  text-align: center;
-}
-
-div[class*='line'] span:hover {
-  /*   box-shadow: 0px 2px 10px #040404;*/
-  
-  background: #2F3336;
-  text-shadow: 1px 2px 60px #00BCD4, 0px 0px 60px rgba(0, 188, 212, .9), 0px 0px 60px rgba(0, 188, 212, .9), 10px 10px 60px rgba(0, 188, 212, .9);
-  cursor: pointer
-}
-
-div[class*='line'] span:active {
-  transform: scale(.9);
-}
-
-/* .line3 span:first-of-type {
-  width: 35px;
-  padding: 10px 15px;
-}
-
-.line3 span:last-of-type {
-  width: 35px;
-  padding: 10px 15px;
-} */
-
-.line4 span:nth-child(1) {
-  width: 55px
-}
-
-.line4 span:nth-child(2) {
-  width: 35px;
-  padding: 10px 15px;
-}
-
-.line4 span:nth-child(3) {
-  width: 35px;
-  padding: 10px 15px;
-}
-
-.line4 span:nth-child(4) {
-  width: 255px
-}
-
-.line4 span:last-of-type {
-  width: 105px
-}
-
-#arrow,
-#backspace,
-#smile,
-#mic {
-  fill: #71D4FE;
-  width: 35px;
- height:35px;
-}
-

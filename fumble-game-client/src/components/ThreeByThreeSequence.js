@@ -1,7 +1,7 @@
 import React, {useState} from 'react'
-import ClickTile from './ClickTile'
+import ThreeByThreeTile from './ThreeByThreeTile'
 
-function ClickSequence() {
+function ThreeByThreeSequence() {
   const [randomTile, setRandomTile] = useState()
   const [randomSequence, setRandomSequence] = useState([])
   const [clickedSequence, setClickedSequence] = useState([])
@@ -44,18 +44,18 @@ function ClickSequence() {
   }
 
   const tileGrid = tileCount.map(tile => {
-    return <ClickTile key={tile} tileNumber={tile} randomTile={randomTile} randomSequence={randomSequence} disable={disable} onClickedNumber={handleClickedNumber} onRandomNumber={handleRandomNumber}/>
+    return <ThreeByThreeTile key={tile} tileNumber={tile} randomTile={randomTile} randomSequence={randomSequence} disable={disable} onClickedNumber={handleClickedNumber} onRandomNumber={handleRandomNumber}/>
   })
 
   return (
-    <div>
+    <div style={{height: "500px"}}>
       <h3>{correct ? levelTitle : "WRONG! TRY AGAIN"}</h3>
       <button disabled={disable} onClick={handleRandomNumber}>Start!</button>
-    <div className="click-tile-container">
+    <div className="threexthree-tile-container">
       {tileGrid}
     </div>
     </div>
   )
 }
 
-export default ClickSequence
+export default ThreeByThreeSequence

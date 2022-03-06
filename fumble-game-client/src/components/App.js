@@ -1,10 +1,13 @@
-import React from "react";
-import { Route, Switch } from "react-router-dom";
-import Navbar from "./Navbar";
-import Menu from "./Menu";
-import ClickSequence from "./ClickSequence";
-import LetterSequence from "./LetterSequence";
-import NumberSequence from "./NumberSequence";
+import React from "react"
+import { Route, Switch } from "react-router-dom"
+import Navbar from "./Navbar"
+import Menu from "./Menu"
+import ThreeByThreeSequence from "./ThreeByThreeSequence"
+import FourByFourSequence from "./FourByFourSequence"
+import FiveByFiveSequence from "./FiveByFiveSequence"
+import NumberMemory from "./NumberMemory"
+import LetterMemory from "./LetterMemory"
+
 import HighScores from "./HighScores";
 
 function App() {
@@ -14,18 +17,24 @@ function App() {
       <Menu />
 
       <Switch>
-        <Route path="/clicksequence">
-          <ClickSequence />
+        <Route path="/threebythreesequence">
+          <ThreeByThreeSequence />
         </Route>
-        <Route path="/lettersequence">
-          <LetterSequence />
+        <Route path="/fourbyfoursequence">
+          <FourByFourSequence />
         </Route>
-        <Route path="/numbersequence">
-          <NumberSequence />
+        <Route path="/fivebyfivesequence">
+          <FiveByFiveSequence />
+        </Route>
+        <Route path="/numbermemory">
+          <NumberMemory />
+        </Route>
+        <Route path="/lettermemory">
+          <LetterMemory />
         </Route>
         <Route path="/highscores">
           <HighScores />
-          </Route>
+        </Route>
       </Switch>
     </div>
   );
