@@ -45,7 +45,7 @@ const tileGrid = tileCount.map(tile => {
 
   return (
     <div style={{height: "500px"}}>
-      <h3>YOU DO NOT BELONG HERE!</h3>
+      <h3>YOU DO NOT BELONG HERE! 💀</h3>
       <h3>{correct ? levelTitle : "WRONG! GET FUMBLED! TRY AGAIN!"}</h3>
       <button disabled={disable} onClick={handleStart}>Start!</button>
       <form onSubmit={handleSubmit}>

@@ -1,4 +1,4 @@
-import React, {useState} from 'react'
+import React, {useState, useEffect} from 'react'
 import NumberTile from "./NumberTile"
 
 function NumberMemory() {
@@ -7,6 +7,7 @@ const [counter, setCounter] = useState(0)
 const [disable, setDisable] = useState(false)
 const [correct, setCorrect] = useState(true)
 const [input, setInput] = useState("")
+const [lameJoke, setLameJoke] = useState([])
 
 const levelTitle = counter === 0 ? "PSSSSST! Separate numbers with a space." : `Level ${counter}`
 
@@ -17,6 +18,12 @@ for (let i = 1; i<101; i++) {
 
 const randomNumber = Math.floor(Math.random()*100)+1
 console.log(randomNums.join(" "))
+
+useEffect(() => {
+  fetch("https://icanhazdadjoke.com/slack")
+  .then(resp => resp.json())
+  .then(data => setLameJoke(data.attachments[0].text))
+}, [])
 
   function handleStart() {
     setRandomNums([...randomNums, randomNumber])
@@ -46,7 +53,7 @@ const tileGrid = tileCount.map(tile => {
   return (
     <div style={{height: "500px"}}>
       <h3>MEMORIZE ALL THE NUMBERS THAT HAVE FLASHED 🤡</h3>
-      <h3>{correct ? levelTitle : "WRONG! GET FUMBLED! TRY AGAIN!"}</h3>
+      <h3>{correct ? levelTitle : `WRONG! HERE, A LAME JOKE TO MAKE YOU FEEL BETTER: ${lameJoke}`}</h3>
       <button disabled={disable} onClick={handleStart}>Start!</button>
       <form onSubmit={handleSubmit}>
         <input value={input} onChange={e => setInput(e.target.value)}></input>

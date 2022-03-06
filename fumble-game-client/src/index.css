@@ -111,10 +111,6 @@ code {
   transform: scale(.975);
 }
 
-.massive-tile:active {
-  background: #5D8BF4;
-}
-
 .massive-tile-container {
   justify-content: center;
   display: grid;
