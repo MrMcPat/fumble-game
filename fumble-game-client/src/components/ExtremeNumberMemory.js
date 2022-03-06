@@ -11,11 +11,11 @@ const [input, setInput] = useState("")
 const levelTitle = counter === 0 ? "PSSSSST! Separate numbers with a space." : `Level ${counter}`
 
 let tileCount = []
-for (let i = 1; i<101; i++) {
+for (let i = 1; i<226; i++) {
   tileCount.push(i)
 }
 
-const randomNumber = Math.floor(Math.random()*100)+1
+const randomNumber = Math.floor(Math.random()*225)+1
 console.log(randomNums.join(" "))
 
   function handleStart() {
@@ -45,14 +45,14 @@ const tileGrid = tileCount.map(tile => {
 
   return (
     <div style={{height: "500px"}}>
-      <h3>MEMORIZE ALL THE NUMBERS THAT HAVE FLASHED 🤡</h3>
+      <h3>YOU DO NOT BELONG HERE!</h3>
       <h3>{correct ? levelTitle : "WRONG! GET FUMBLED! TRY AGAIN!"}</h3>
       <button disabled={disable} onClick={handleStart}>Start!</button>
       <form onSubmit={handleSubmit}>
         <input value={input} onChange={e => setInput(e.target.value)}></input>
         <input disabled={!disable} type="submit"></input>
       </form>
-      <div className="massive-tile-container">
+      <div className="extreme-tile-container">
        {tileGrid} 
       </div>
   
