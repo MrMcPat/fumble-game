@@ -24,8 +24,21 @@ function FourByFourSequence() {
   console.log(quotes)
 
   function handleRandomNumber() {
-    setRandomTile(randomNumber)
-    setRandomSequence([...randomSequence, randomNumber])
+    if (randomSequence.slice(-1).join() == randomNumber) {
+      if (randomNumber === 16) {
+        setRandomSequence([...randomSequence, randomNumber-1])
+        setRandomTile(randomNumber-1)
+      } else if (randomNumber === 1) {
+        setRandomSequence([...randomSequence, randomNumber+1])
+        setRandomTile(randomNumber+1)
+      } else {
+        setRandomSequence([...randomSequence, randomNumber-1])
+        setRandomTile(randomNumber-1)
+      }
+    } else {
+      setRandomSequence([...randomSequence, randomNumber])
+      setRandomTile(randomNumber)
+    }
     setClickedSequence([])
     setCounter(counter+1)
     setDisable(true)

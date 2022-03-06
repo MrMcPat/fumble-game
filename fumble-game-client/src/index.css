@@ -96,3 +96,103 @@ code {
   display: grid;
   grid-template-columns: auto auto auto auto auto;
 }
+
+.sixbysix-tile {
+  background: transparent;
+  border: none;
+  border-radius: 15%;
+  width: 50px;
+  height: 50px;
+  background: #94DAFF;
+  margin: 2.5px;
+}
+
+.sixbysix-tile:hover {
+  transform: scale(.975);
+}
+
+.sixbysix-tile:active {
+  background: #5D8BF4;
+}
+
+.sixbysix-tile-container {
+  justify-content: center;
+  display: grid;
+  grid-template-columns: auto auto auto auto auto auto;
+}
+
+.animate-tile-1 {
+  animation: randomAnimate 0.5s;
+}
+.animate-tile-2 {
+  animation: randomAnimate 0.5s;
+}
+.animate-tile-3 {
+  animation: randomAnimate 0.5s;
+}
+.animate-tile-4 {
+  animation: randomAnimate 0.5s;
+}
+.animate-tile-5 {
+  animation: randomAnimate 0.5s;
+}
+.animate-tile-6 {
+  animation: randomAnimate 0.5s;
+}
+.animate-tile-7 {
+  animation: randomAnimate 0.5s;
+}
+.animate-tile-8 {
+  animation: randomAnimate 0.5s;
+}
+.animate-tile-9 {
+  animation: randomAnimate 0.5s;
+}
+.animate-tile-10 {
+  animation: randomAnimate 0.5s;
+}
+.animate-tile-11 {
+  animation: randomAnimate 0.5s;
+}
+.animate-tile-12 {
+  animation: randomAnimate 0.5s;
+}
+.animate-tile-13 {
+  animation: randomAnimate 0.5s;
+}
+.animate-tile-14 {
+  animation: randomAnimate 0.5s;
+}
+.animate-tile-15 {
+  animation: randomAnimate 0.5s;
+}
+.animate-tile-16 {
+  animation: randomAnimate 0.5s;
+}
+.animate-tile-17 {
+  animation: randomAnimate 0.5s;
+}
+.animate-tile-18 {
+  animation: randomAnimate 0.5s;
+}
+.animate-tile-19 {
+  animation: randomAnimate 0.5s;
+}
+.animate-tile-20 {
+  animation: randomAnimate 0.5s;
+}
+.animate-tile-21 {
+  animation: randomAnimate 0.5s;
+}
+.animate-tile-22 {
+  animation: randomAnimate 0.5s;
+}
+.animate-tile-23 {
+  animation: randomAnimate 0.5s;
+}
+.animate-tile-24 {
+  animation: randomAnimate 0.5s;
+}
+.animate-tile-25 {
+  animation: randomAnimate 0.5s;
+}

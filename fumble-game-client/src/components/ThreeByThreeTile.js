@@ -1,6 +1,7 @@
 import React from "react";
 
 function ThreeByThreeTile({ tileNumber, randomTile, disable, onClickedNumber, toggle }) {
+const animate = tileNumber === randomTile ? "randomAnimate 0.5s" : ""
 
   function handleTileClick() {
     onClickedNumber(tileNumber);
@@ -9,7 +10,7 @@ function ThreeByThreeTile({ tileNumber, randomTile, disable, onClickedNumber, to
   return (
     <button
       style={{
-        animation: tileNumber === randomTile ? "randomAnimate 0.5s" : "",
+        animation: animate,
       }}
       disabled={!disable}
       className={`threebythree-tile`}
