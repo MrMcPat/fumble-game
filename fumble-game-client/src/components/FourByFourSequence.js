@@ -1,17 +1,27 @@
-import React, {useState} from 'react'
+import React, {useState, useEffect} from 'react'
 import FourByFourTile from "./FourByFourTile"
 
 function FourByFourSequence() {
   const [randomTile, setRandomTile] = useState()
   const [randomSequence, setRandomSequence] = useState([])
   const [clickedSequence, setClickedSequence] = useState([])
+  const [quotes, setQuotes] = useState([])
   const [counter, setCounter] = useState(0)
   const [disable, setDisable] = useState(false)
   const [correct, setCorrect] = useState(true)
+  const [toggle, setToggle] = useState(false)
 
   const tileCount = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16]
   const randomNumber = Math.floor(Math.random()*16)+1
-  const levelTitle = counter === 0 ? "Ready to get fumbled up?" : `Level ${counter}`
+  const levelTitle = counter === 0 ? "Ready to get fumbled up? 🤓" : `Level ${counter}`
+
+  useEffect(() => {
+    fetch("https://type.fit/api/quotes")
+    .then(resp => resp.json())
+    .then(data => setQuotes(data[Math.floor(Math.random()*1642)].text))
+  }, [])
+
+  console.log(quotes)
 
   function handleRandomNumber() {
     setRandomTile(randomNumber)
@@ -24,6 +34,10 @@ function FourByFourSequence() {
 
   function handleClickedNumber(clickedNum) {
     setClickedSequence([...clickedSequence, clickedNum])
+  }
+
+  function handleToggle() {
+    setToggle(toggle => !toggle)
   }
 
   console.log(clickedSequence)
@@ -44,13 +58,14 @@ function FourByFourSequence() {
   }
 
   const tileGrid = tileCount.map(tile => {
-    return <FourByFourTile key={tile} tileNumber={tile} randomTile={randomTile} randomSequence={randomSequence} disable={disable} onClickedNumber={handleClickedNumber} onRandomNumber={handleRandomNumber}/>
+    return <FourByFourTile key={tile} tileNumber={tile} randomTile={randomTile} randomSequence={randomSequence} disable={disable} onClickedNumber={handleClickedNumber} onRandomNumber={handleRandomNumber} toggle={toggle}/>
   })
 
   return (
     <div style={{height: "500px"}}>
-      <h3>{correct ? levelTitle : "WRONG! TRY AGAIN"}</h3>
+      <h3>{correct ? levelTitle : `Wrong! ${quotes} But try again, you can do it!`}</h3>
       <button disabled={disable} onClick={handleRandomNumber}>Start!</button>
+      <button onClick={handleToggle}>Afraid to fumble?</button>
     <div className="fourxfour-tile-container">
       {tileGrid}
     </div>

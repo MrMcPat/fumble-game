@@ -1,6 +1,6 @@
 import React from "react";
 
-function FourByFourTile({ tileNumber, randomTile, disable, onClickedNumber }) {
+function FourByFourTile({ tileNumber, randomTile, disable, onClickedNumber, toggle }) {
   function handleTileClick() {
     onClickedNumber(tileNumber);
   }
@@ -13,7 +13,7 @@ function FourByFourTile({ tileNumber, randomTile, disable, onClickedNumber }) {
       disabled={!disable}
       className={`fourbyfour-tile`}
       onClick={handleTileClick}
-    >{tileNumber}</button>
+    >{toggle ? tileNumber : ""}</button>
   );
 }
 

@@ -1,6 +1,6 @@
 import React from "react";
 
-function FiveByFiveTile({ tileNumber, randomTile, disable, onClickedNumber }) {
+function FiveByFiveTile({ tileNumber, randomTile, disable, onClickedNumber, toggle}) {
   function handleTileClick() {
     onClickedNumber(tileNumber);
   }
@@ -13,7 +13,7 @@ function FiveByFiveTile({ tileNumber, randomTile, disable, onClickedNumber }) {
       disabled={!disable}
       className={`fivebyfive-tile`}
       onClick={handleTileClick}
-    >{tileNumber}</button>
+    >{toggle ? tileNumber : ""}</button>
   );
 }
 

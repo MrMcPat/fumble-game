@@ -1,6 +1,7 @@
 import React from "react";
 
-function ThreeByThreeTile({ tileNumber, randomTile, disable, onClickedNumber }) {
+function ThreeByThreeTile({ tileNumber, randomTile, disable, onClickedNumber, toggle }) {
+
   function handleTileClick() {
     onClickedNumber(tileNumber);
   }
@@ -13,7 +14,7 @@ function ThreeByThreeTile({ tileNumber, randomTile, disable, onClickedNumber }) 
       disabled={!disable}
       className={`threebythree-tile`}
       onClick={handleTileClick}
-    >{tileNumber}</button>
+    >{toggle ? tileNumber : ""}</button>
   );
 }
 

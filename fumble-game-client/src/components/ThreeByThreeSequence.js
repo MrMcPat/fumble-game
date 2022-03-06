@@ -1,17 +1,25 @@
-import React, {useState} from 'react'
+import React, {useState, useEffect} from 'react'
 import ThreeByThreeTile from './ThreeByThreeTile'
 
 function ThreeByThreeSequence() {
   const [randomTile, setRandomTile] = useState()
   const [randomSequence, setRandomSequence] = useState([])
   const [clickedSequence, setClickedSequence] = useState([])
+  const [compliments, setCompliments] = useState([])
   const [counter, setCounter] = useState(0)
   const [disable, setDisable] = useState(false)
   const [correct, setCorrect] = useState(true)
+  const [toggle, setToggle] = useState(false)
 
   const tileCount = [1, 2, 3, 4, 5, 6, 7, 8, 9]
   const randomNumber = Math.floor(Math.random()*9)+1
-  const levelTitle = counter === 0 ? "Ready to get fumbled up?" : `Level ${counter}`
+  const levelTitle = counter === 0 ? "Ready to get fumbled up, sweetheart?~ 😄" : `Level ${counter}`
+
+  useEffect(() => {
+    fetch("https://complimentr.com/api")
+    .then(resp => resp.json())
+    .then(data => setCompliments(data.compliment))
+  }, [])
 
   function handleRandomNumber() {
     setRandomTile(randomNumber)
@@ -24,6 +32,10 @@ function ThreeByThreeSequence() {
 
   function handleClickedNumber(clickedNum) {
     setClickedSequence([...clickedSequence, clickedNum])
+  }
+
+  function handleToggle() {
+    setToggle(toggle => !toggle)
   }
 
   console.log(clickedSequence)
@@ -44,13 +56,14 @@ function ThreeByThreeSequence() {
   }
 
   const tileGrid = tileCount.map(tile => {
-    return <ThreeByThreeTile key={tile} tileNumber={tile} randomTile={randomTile} randomSequence={randomSequence} disable={disable} onClickedNumber={handleClickedNumber} onRandomNumber={handleRandomNumber}/>
+    return <ThreeByThreeTile key={tile} tileNumber={tile} randomTile={randomTile} randomSequence={randomSequence} disable={disable} onClickedNumber={handleClickedNumber} onRandomNumber={handleRandomNumber} toggle={toggle}/>
   })
 
   return (
     <div style={{height: "500px"}}>
-      <h3>{correct ? levelTitle : "WRONG! TRY AGAIN"}</h3>
+      <h3>{correct ? levelTitle : `Oh dear! Incorrect~ ${compliments}. Try again sweetie<3`}</h3>
       <button disabled={disable} onClick={handleRandomNumber}>Start!</button>
+      <button onClick={handleToggle}>Afraid to fumble?</button>
     <div className="threexthree-tile-container">
       {tileGrid}
     </div>
