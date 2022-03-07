@@ -2,7 +2,6 @@ import React, {useState, useEffect} from 'react'
 import ColorMatchTile from "./ColorMatchTile"
 
 function CrazyColorMatch() {
-    const [clickedTile, setClickedTile] = useState("")
     const [randomColor, setRandomColor] = useState("")
     const [randomizedArray, setRandomizedArray] = useState([])
     const [counter, setCounter] = useState(0)
@@ -27,7 +26,6 @@ function CrazyColorMatch() {
     }, [])
 
     function handleClickedTile (tile) {
-        setClickedTile(tile)
         if (randomColor === tile) {
             console.log("yay")
             setRandomizedArray(array.sort((a, b) => 0.5 - Math.random()))

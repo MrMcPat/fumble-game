@@ -1,11 +1,10 @@
-import React, {useState} from 'react'
+import React from 'react'
 
-function ColorMatchTile({tileColor, onClickedTile, index}) {
-    // const [disable, setDisable] = useState(false)
+function ColorMatchTile({tileColor, onClickedTile}) {
 
     function handleClick() {
         onClickedTile(tileColor)
-        // setDisable(true)
+
     }
 
   return (

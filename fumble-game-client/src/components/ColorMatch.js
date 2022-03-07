@@ -2,12 +2,16 @@ import React, {useState, useEffect} from 'react'
 import ColorMatchTile from "./ColorMatchTile"
 
 function ColorMatch() {
-    const [clickedTile, setClickedTile] = useState("")
     const [randomColor, setRandomColor] = useState("")
     const [randomizedArray, setRandomizedArray] = useState([])
     const [counter, setCounter] = useState(0)
 
-    const array = ["#E74C3C", "#F74C3C", "#A569BD", "#B569BD", "#5499C7", "#6499C7", "#48C9B0", "#58C9B0", "#27AE60", "#37AE60", "#F4D03F", "#A4D03F", "#F39C12", "#E39C12", "#B3B6B7", "#C3B6B7", "#641E16", "#441E16", "#751E16", "#551E16", "#FADBD8", "#EADBD8", "#D6EAF8", "#C6EAF8", "#DDD3EC", "#EDD3EC", "#F91DE4", "#A91DE4", "#0FF42D", "#1FF42D", "#CF2352", "#DF2352", "#1BD1D8", "#1BD1D8", "#DD6F34", "#CD6F34"]
+    const array = ["#E74C3C", "#F74C3C", "#A569BD", "#B569BD", "#5499C7", "#6499C7", 
+    "#48C9B0", "#58C9B0", "#27AE60", "#37AE60", "#F4D03F", "#A4D03F", 
+    "#F39C12", "#E39C12", "#B3B6B7", "#C3B6B7", "#641E16", "#441E16", 
+    "#751E16", "#551E16", "#FADBD8", "#EADBD8", "#D6EAF8", "#C6EAF8", 
+    "#DDD3EC", "#EDD3EC", "#F91DE4", "#A91DE4", "#0FF42D", "#1FF42D", 
+    "#CF2352", "#DF2352", "#1BD1D8", "#1BD1D8", "#DD6F34", "#CD6F34"]
  
     useEffect(() => {
         const shuffledArray = array.sort((a, b) => 0.5 - Math.random())
@@ -16,7 +20,6 @@ function ColorMatch() {
     }, [])
 
     function handleClickedTile (tile) {
-        setClickedTile(tile)
         if (randomColor === tile) {
             console.log("yay")
             setRandomizedArray(array.sort((a, b) => 0.5 - Math.random()))

@@ -17,9 +17,11 @@ function App() {
   return (
     <div>
       <Navbar/>
-      <Menu />
 
       <Switch>
+        <Route exact path="/">
+          <Menu />
+        </Route>
         <Route path="/threebythreesequence">
           <ThreeByThreeSequence />
         </Route>

@@ -33,7 +33,7 @@ useEffect(() => {
 
   function handleSubmit(e) {
     e.preventDefault()
-    if (input == randomNums.join("")) {
+    if (input === randomNums.join("")) {
       setRandomNums([...randomNums, randomNumber])
       setCorrect(true)
       setCounter(counter+1)
