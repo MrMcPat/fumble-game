@@ -95,6 +95,58 @@ code {
   grid-template-columns: auto auto auto auto auto;
 }
 
+.sixbysix-tile {
+  background: transparent;
+  border: none;
+  border-radius: 15%;
+  width: 50px;
+  height: 50px;
+  background: #94DAFF;
+  margin: 2.5px;
+}
+
+.sixbysix-tile:hover {
+  transform: scale(.975);
+}
+
+.sixbysix-tile-container {
+  justify-content: center;
+  display: grid;
+  grid-template-columns: auto auto auto auto auto auto;
+}
+
+.twelvebysix-tile-container {
+  justify-content: center;
+  display: grid;
+  grid-template-columns: auto auto auto auto auto auto auto auto auto auto auto auto;
+}
+
+.twentyfourbysix-tile-container {
+  justify-content: center;
+  display: grid;
+  grid-template-columns: auto auto auto auto auto auto auto auto auto auto auto auto auto auto auto auto auto auto auto auto auto auto auto auto;
+}
+
+.sevenbyseven-tile {
+  background: transparent;
+  border: none;
+  border-radius: 15%;
+  width: 45px;
+  height: 45px;
+  background: #94DAFF;
+  margin: 2.5px;
+}
+
+.sevenbyseven-tile:hover {
+  transform: scale(.975);
+}
+
+.sevenbyseven-tile-container {
+  justify-content: center;
+  display: grid;
+  grid-template-columns: auto auto auto auto auto auto auto;
+}
+
 .massive-tile {
   background: transparent;
   border: none;
@@ -123,7 +175,15 @@ code {
 
 .memorize-number {
   animation: fadeOut 1s;
+}
 
+.color-match {
+  background: transparent;
+  margin: 20px auto;
+  border: none;
+  border-radius: 15%;
+  width: 150px;
+  height: 150px;
 }
 
 @keyframes fadeOut {

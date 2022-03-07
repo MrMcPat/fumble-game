@@ -1,28 +1,28 @@
 import React, {useState, useEffect} from 'react'
-import NumberTile from "./NumberTile"
+import EasyNumberTile from "./EasyNumberTile"
 
-function NumberMemory() {
+function EasyNumberMemory() {
 const [randomNums, setRandomNums] = useState([])
 const [counter, setCounter] = useState(0)
 const [disable, setDisable] = useState(false)
 const [correct, setCorrect] = useState(true)
 const [input, setInput] = useState("")
-const [insult, setInsult] = useState([])
+const [compliment, setCompliment] = useState([])
 
-const levelTitle = counter === 0 ? "Try to get the longest number." : `Level ${counter}`
+const levelTitle = counter === 0 ? "PSSSSST! Try to get the longest number." : `Level ${counter}`
 
 let tileCount = []
-for (let i = 1; i<226; i++) {
+for (let i = 1; i<50; i++) {
   tileCount.push(i)
 }
 
-const randomNumber = Math.floor(Math.random()*225)+1
+const randomNumber = Math.floor(Math.random()*49)+1
 console.log(randomNums.join(""))
 
 useEffect(() => {
-  fetch("https://insult.mattbas.org/api/insult.json")
+  fetch("https://complimentr.com/api")
   .then(resp => resp.json())
-  .then(data => setInsult(data.insult))
+  .then(data => setCompliment(data.compliment))
 }, [])
 
   function handleStart() {
@@ -49,19 +49,19 @@ useEffect(() => {
   }
 
 const tileGrid = tileCount.map(tile => {
-  return <NumberTile key={tile} tileNumber={tile} randomNums={randomNums}/>
+  return <EasyNumberTile key={tile} tileNumber={tile} randomNums={randomNums}/>
 })
 
   return (
     <div style={{height: "500px"}}>
-      <h3>YOU DO NOT BELONG HERE! 💀</h3>
-      <h3>{correct ? levelTitle : `WRONG! ${insult} TRY AGAIN!`}</h3>
+      <h3>Memorize all the numbers that have flashed, darling~ 🥰</h3>
+      <h3>{correct ? levelTitle : `WRONG! HERE, A LAME JOKE TO MAKE YOU FEEL BETTER: ${compliment}`}</h3>
       <button disabled={disable} onClick={handleStart}>Start!</button>
       <form onSubmit={handleSubmit}>
         <input value={input} onChange={e => setInput(e.target.value)}></input>
         <input disabled={!disable} type="submit"></input>
       </form>
-      <div className="extreme-tile-container">
+      <div className="sevenbyseven-tile-container">
        {tileGrid} 
       </div>
   
@@ -69,4 +69,4 @@ const tileGrid = tileCount.map(tile => {
   )
 }
 
-export default NumberMemory
+export default EasyNumberMemory

@@ -5,10 +5,12 @@ import Menu from "./Menu"
 import ThreeByThreeSequence from "./ThreeByThreeSequence"
 import FourByFourSequence from "./FourByFourSequence"
 import FiveByFiveSequence from "./FiveByFiveSequence"
+import EasyNumberMemory from "./EasyNumberMemory"
 import NumberMemory from "./NumberMemory"
 import ExtremeNumberMemory from "./ExtremeNumberMemory"
-
-
+import ColorMatch from "./ColorMatch"
+import CrazyColorMatch from "./CrazyColorMatch"
+import DeathColorMatch from "./DeathColorMatch"
 import HighScores from "./HighScores";
 
 function App() {
@@ -27,11 +29,23 @@ function App() {
         <Route path="/fivebyfivesequence">
           <FiveByFiveSequence />
         </Route>
+        <Route path="/easynumbermemory">
+          <EasyNumberMemory />
+        </Route>
         <Route path="/numbermemory">
           <NumberMemory />
         </Route>
         <Route path="/extremenumbermemory">
           <ExtremeNumberMemory />
+        </Route>
+        <Route path="/colormatch">
+          <ColorMatch />
+        </Route>
+        <Route path="/crazycolormatch">
+          <CrazyColorMatch />
+        </Route>
+        <Route path="/deathcolormatch">
+          <DeathColorMatch />
         </Route>
         <Route path="/highscores">
           <HighScores />

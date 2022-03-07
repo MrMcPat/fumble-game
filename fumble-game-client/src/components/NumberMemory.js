@@ -9,7 +9,7 @@ const [correct, setCorrect] = useState(true)
 const [input, setInput] = useState("")
 const [lameJoke, setLameJoke] = useState([])
 
-const levelTitle = counter === 0 ? "PSSSSST! Separate numbers with a space." : `Level ${counter}`
+const levelTitle = counter === 0 ? "Try to get the longest number." : `Level ${counter}`
 
 let tileCount = []
 for (let i = 1; i<101; i++) {
@@ -17,7 +17,7 @@ for (let i = 1; i<101; i++) {
 }
 
 const randomNumber = Math.floor(Math.random()*100)+1
-console.log(randomNums.join(" "))
+console.log(randomNums.join(""))
 
 useEffect(() => {
   fetch("https://icanhazdadjoke.com/slack")
@@ -33,7 +33,7 @@ useEffect(() => {
 
   function handleSubmit(e) {
     e.preventDefault()
-    if (input == randomNums.join(" ")) {
+    if (input == randomNums.join("")) {
       setRandomNums([...randomNums, randomNumber])
       setCorrect(true)
       setCounter(counter+1)
