@@ -42,6 +42,8 @@ useEffect(() => {
       setDisable(false)
       setCorrect(false)
       setCounter(0)
+      document.body.style.background= "#FF1700"
+      setTimeout(() => {document.body.style.background="#2FA4FF"}, 200)
     }
     setInput("")
   }

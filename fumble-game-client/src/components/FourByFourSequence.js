@@ -65,6 +65,8 @@ function FourByFourSequence() {
         setCounter(0)
         setDisable(false)
         setCorrect(false)
+        document.body.style.background= "#FF1700"
+        setTimeout(() => {document.body.style.background="#2FA4FF"}, 200)
         console.log("WRONG!")
       }
     }

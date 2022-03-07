@@ -5,7 +5,7 @@ function FiveByFiveSequence() {
   const [randomTile, setRandomTile] = useState()
   const [randomSequence, setRandomSequence] = useState([])
   const [clickedSequence, setClickedSequence] = useState([])
-  const [insults, setInsults] = useState([])
+  const [insult, setInsult] = useState([])
   const [counter, setCounter] = useState(0)
   const [disable, setDisable] = useState(false)
   const [correct, setCorrect] = useState(true)
@@ -18,7 +18,7 @@ function FiveByFiveSequence() {
   useEffect(() => {
     fetch("https://insult.mattbas.org/api/insult.json")
     .then(resp => resp.json())
-    .then(data => setInsults(data.insult))
+    .then(data => setInsult(data.insult))
   }, [])
 
   function handleRandomNumber() {
@@ -63,6 +63,8 @@ function FiveByFiveSequence() {
         setCounter(0)
         setDisable(false)
         setCorrect(false)
+        document.body.style.background= "#FF1700"
+        setTimeout(() => {document.body.style.background="#2FA4FF"}, 200)
         console.log("WRONG!")
       }
     }
@@ -74,7 +76,7 @@ function FiveByFiveSequence() {
 
   return (
     <div style={{height: "500px"}}>
-      <h3>{correct ? levelTitle : `WRONG! ${insults}. TRY AGAIN!`}</h3>
+      <h3>{correct ? levelTitle : `WRONG! ${insult}. TRY AGAIN!`}</h3>
       <button disabled={disable} onClick={handleRandomNumber}>Start!</button>
       <button onClick={handleToggle}>Afraid to fumble?</button>
     <div className="fivebyfive-tile-container">

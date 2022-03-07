@@ -1,4 +1,4 @@
-import React, {useState} from 'react'
+import React, {useState, useEffect} from 'react'
 import NumberTile from "./NumberTile"
 
 function NumberMemory() {
@@ -7,6 +7,7 @@ const [counter, setCounter] = useState(0)
 const [disable, setDisable] = useState(false)
 const [correct, setCorrect] = useState(true)
 const [input, setInput] = useState("")
+const [insult, setInsult] = useState([])
 
 const levelTitle = counter === 0 ? "PSSSSST! Separate numbers with a space." : `Level ${counter}`
 
@@ -17,6 +18,12 @@ for (let i = 1; i<226; i++) {
 
 const randomNumber = Math.floor(Math.random()*225)+1
 console.log(randomNums.join(" "))
+
+useEffect(() => {
+  fetch("https://insult.mattbas.org/api/insult.json")
+  .then(resp => resp.json())
+  .then(data => setInsult(data.insult))
+}, [])
 
   function handleStart() {
     setRandomNums([...randomNums, randomNumber])
@@ -35,6 +42,8 @@ console.log(randomNums.join(" "))
       setDisable(false)
       setCorrect(false)
       setCounter(0)
+      document.body.style.background= "#FF1700"
+      setTimeout(() => {document.body.style.background="#2FA4FF"}, 200)
     }
     setInput("")
   }
@@ -46,7 +55,7 @@ const tileGrid = tileCount.map(tile => {
   return (
     <div style={{height: "500px"}}>
       <h3>YOU DO NOT BELONG HERE! 💀</h3>
-      <h3>{correct ? levelTitle : "WRONG! GET FUMBLED! TRY AGAIN!"}</h3>
+      <h3>{correct ? levelTitle : `WRONG! ${insult} TRY AGAIN!`}</h3>
       <button disabled={disable} onClick={handleStart}>Start!</button>
       <form onSubmit={handleSubmit}>
         <input value={input} onChange={e => setInput(e.target.value)}></input>
