@@ -23,12 +23,10 @@ function HighScores() {
         <div className="cube"></div>
         <div className="cube"></div>
         <div className="cube"></div>
-    <div className="player-score-container">
-    {playerDataList}
-    </div>
-
-
+      <div className="player-score-container">
+        {playerDataList}
       </div>
+    </div>
   )
 }
 

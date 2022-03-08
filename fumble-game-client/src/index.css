@@ -63,7 +63,7 @@ code {
 .navbar h1 {
   display: inline;
   color: white;
-  margin: 0 100px;
+  margin: 0 80px;
 }
 
 .menu-page {
@@ -420,7 +420,7 @@ code {
 .player-score-container {
   justify-content: center;
   display: grid;
-  grid-template-columns: auto auto auto auto;
+  grid-template-columns: auto auto auto auto auto;
 }
 
 .player-score-card {

@@ -77,7 +77,7 @@ class ApplicationController < Sinatra::Base
     player_score.to_json
   end
 
-  delete '/players/:id' do
+  delete '/player_scores/:id' do
     player_score = PlayerScore.find(params[:id])
     player_score.destroy
     player_score.to_json

@@ -4,7 +4,7 @@ function HighScoreCard({player}) {
 
   return (
     <div className="player-score-card">
-        <p>Name: {player.name}</p>
+        <h3>{player.name}</h3>
         <p>{player.game_mode.game_mode}</p>
         <p>High Score: {player.high_score}</p>
         <p>{player.game_result}</p>
