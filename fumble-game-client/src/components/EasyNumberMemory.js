@@ -4,6 +4,7 @@ import EasyNumberTile from "./EasyNumberTile"
 function EasyNumberMemory() {
 const [randomNums, setRandomNums] = useState([])
 const [counter, setCounter] = useState(0)
+const [score, setScore] = useState("")
 const [disable, setDisable] = useState(false)
 const [correct, setCorrect] = useState(true)
 const [input, setInput] = useState("")
@@ -37,6 +38,7 @@ useEffect(() => {
       setRandomNums([...randomNums, randomNumber])
       setCorrect(true)
       setCounter(counter+1)
+      setScore(counter)
     } else {
       setRandomNums([])
       setDisable(false)
@@ -55,7 +57,7 @@ const tileGrid = tileCount.map(tile => {
   return (
     <div style={{height: "500px"}}>
       <h3>Memorize all the numbers that have flashed, darling~ 🥰</h3>
-      <h3>{correct ? levelTitle : `WRONG! HERE, A LAME JOKE TO MAKE YOU FEEL BETTER: ${compliment}`}</h3>
+      <h3>{correct ? levelTitle : `Oh no...poor thing...Your score is ${score}. ${compliment}`}</h3>
       <button disabled={disable} onClick={handleStart}>Start!</button>
       <form onSubmit={handleSubmit}>
         <input value={input} onChange={e => setInput(e.target.value)}></input>

@@ -7,6 +7,7 @@ function ThreeByThreeSequence() {
   const [clickedSequence, setClickedSequence] = useState([])
   const [compliments, setCompliments] = useState([])
   const [counter, setCounter] = useState(0)
+  const [score, setScore] = useState("")
   const [disable, setDisable] = useState(false)
   const [correct, setCorrect] = useState(true)
   const [toggle, setToggle] = useState(false)
@@ -39,6 +40,7 @@ function ThreeByThreeSequence() {
     }
     setClickedSequence([])
     setCounter(counter+1)
+    setScore(counter)
     setDisable(true)
     setCorrect(true)
   }
@@ -76,7 +78,7 @@ function ThreeByThreeSequence() {
 
   return (
     <div style={{height: "500px"}}>
-      <h3>{correct ? levelTitle : `Oh dear! Incorrect~ ${compliments}. Try again sweetie<3`}</h3>
+      <h3>{correct ? levelTitle : `Oh dear! Incorrect. Your score is ${score-1}~ ${compliments}. Try again sweetie<3`}</h3>
       <button disabled={disable} onClick={handleRandomNumber}>Start!</button>
       <button onClick={handleToggle}>Afraid to fumble?</button>
     <div className="threexthree-tile-container">

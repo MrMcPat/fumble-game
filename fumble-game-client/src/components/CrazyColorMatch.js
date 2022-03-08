@@ -4,7 +4,9 @@ import ColorMatchTile from "./ColorMatchTile"
 function CrazyColorMatch() {
     const [randomColor, setRandomColor] = useState("")
     const [randomizedArray, setRandomizedArray] = useState([])
+    const [correct, setCorrect] = useState(true)
     const [counter, setCounter] = useState(0)
+    const [score, setScore] = useState(0)
 
     const array = ["#F24A28", "#A73720", "#CA4327", "#F0B42B", "#CE9D2D", "#B38828", 
     "#BFEA35", "#9DC12A", "#87A626", "#23A44F", "#1D8641", "#1A7439", 
@@ -30,11 +32,14 @@ function CrazyColorMatch() {
             console.log("yay")
             setRandomizedArray(array.sort((a, b) => 0.5 - Math.random()))
             setRandomColor(array[Math.floor(Math.random() * 72)])
+            setCorrect(true)
             setCounter(counter + 1)
+            setScore(counter+1)
         } else {
             console.log("nay")
             setRandomizedArray(array.sort((a, b) => 0.5 - Math.random()))
             setRandomColor(array[Math.floor(Math.random() * 72)])
+            setCorrect(false)
             setCounter(0)
             document.body.style.background= "#FF1700"
             setTimeout(() => {document.body.style.background="#2FA4FF"}, 200)
@@ -48,7 +53,7 @@ function CrazyColorMatch() {
   return (
     <div>
         <h3>Crazy Color Match</h3>
-        <h5>Level {counter}</h5>
+        <h5>{correct ? `Level ${counter}` : `Latest Streak: ${score}`}</h5>
     <div style={{background: randomColor}} className="color-match"></div>
      <div className="twelvebysix-tile-container">
         {tileGrid}

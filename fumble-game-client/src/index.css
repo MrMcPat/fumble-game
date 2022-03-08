@@ -23,6 +23,14 @@ code {
   }
 }
 
+.navbar {
+  padding: 10px;
+}
+
+.navbar h1 {
+  display: inline;
+}
+
 .menu-link {
   margin: 70px 20px;
   padding: 10px;

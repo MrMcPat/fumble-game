@@ -2,9 +2,10 @@ import React from "react";
 
 function Navbar() {
   return (
-    <div>
+    <nav className="navbar">
       <h1>Brain Fumble</h1>
-    </div>
+    </nav>
+
   );
 }
 

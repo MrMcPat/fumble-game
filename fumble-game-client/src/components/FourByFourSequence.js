@@ -7,6 +7,7 @@ function FourByFourSequence() {
   const [clickedSequence, setClickedSequence] = useState([])
   const [quotes, setQuotes] = useState([])
   const [counter, setCounter] = useState(0)
+  const [score, setScore] = useState("")
   const [disable, setDisable] = useState(false)
   const [correct, setCorrect] = useState(true)
   const [toggle, setToggle] = useState(false)
@@ -41,6 +42,7 @@ function FourByFourSequence() {
     }
     setClickedSequence([])
     setCounter(counter+1)
+    setScore(counter)
     setDisable(true)
     setCorrect(true)
   }
@@ -78,7 +80,7 @@ function FourByFourSequence() {
 
   return (
     <div style={{height: "500px"}}>
-      <h3>{correct ? levelTitle : `Wrong! ${quotes} But try again, you can do it!`}</h3>
+      <h3>{correct ? levelTitle : `Wrong! Your score is ${score-1}. ${quotes} But try again, you can do it!`}</h3>
       <button disabled={disable} onClick={handleRandomNumber}>Start!</button>
       <button onClick={handleToggle}>Afraid to fumble?</button>
     <div className="fourxfour-tile-container">
