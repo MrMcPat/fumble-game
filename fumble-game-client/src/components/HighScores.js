@@ -2,7 +2,14 @@ import React from 'react'
 
 function HighScores() {
   return (
-    <div>HighScores</div>
+    <div className="background">
+      HighScores    
+      <div className="cube"></div>
+       <div className="cube"></div>
+       <div className="cube"></div>
+       <div className="cube"></div>
+      <div className="cube"></div>
+      </div>
   )
 }
 

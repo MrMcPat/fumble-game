@@ -23,7 +23,7 @@ function FiveByFiveSequence() {
   }, [])
 
   function handleRandomNumber() {
-    if (randomSequence.slice(-1).join() == randomNumber) {
+    if (randomSequence.slice(-1).join() === randomNumber) {
       if (randomNumber === 25) {
         setRandomSequence([...randomSequence, randomNumber-1])
         setRandomTile(randomNumber-1)
@@ -56,7 +56,7 @@ function FiveByFiveSequence() {
   console.log(clickedSequence)
   console.log(randomSequence)  
   
-  if (clickedSequence.length == randomSequence.length && clickedSequence.length != 0) {
+  if (clickedSequence.length === randomSequence.length && clickedSequence.length !== 0) {
       handleRandomNumber()
     for(let i = 0; i < clickedSequence.length; i++) {
       if (clickedSequence[i] !== randomSequence[i]) {

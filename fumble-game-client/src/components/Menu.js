@@ -4,15 +4,15 @@ import {Link} from "react-router-dom"
 function Menu() {
   return (
     <div className="menu-container">
-      <Link to="/threebythreesequence" className="menu-link">Sequence Memory (3x3)</Link>
-      <Link to="/fourbyfoursequence" className="menu-link">Sequence Memory (4x4)</Link>
-      <Link to="/fivebyfivesequence" className="menu-link">Sequence Memory (5x5)</Link>
-      <Link to="/easynumbermemory" className="menu-link">Easy Number Memory</Link>
-      <Link to="/numbermemory" className="menu-link">Number Memory</Link>
-      <Link to="/extremenumbermemory" className="menu-link">Extreme Number Memory</Link>
-      <Link to="/colormatch" className="menu-link">Color Match</Link>
-      <Link to="/crazycolormatch" className="menu-link">Crazy Color Match</Link>
-      <Link to="/deathcolormatch" className="menu-link">Death Color Match</Link>
+      <Link to="/threebythreesequence" className="menu-link"><button className="menu-button">Sequence Memory (3x3)</button></Link>
+      <Link to="/fourbyfoursequence" className="menu-link"><button className="menu-button">Sequence Memory (4x4)</button></Link>
+      <Link to="/fivebyfivesequence" className="menu-link"><button className="menu-button">Sequence Memory (5x5)</button></Link>
+      <Link to="/easynumbermemory" className="menu-link"><button className="menu-button">Easy Number Memory</button></Link>
+      <Link to="/numbermemory" className="menu-link"><button className="menu-button">Number Memory</button></Link>
+      <Link to="/extremenumbermemory" className="menu-link"><button className="menu-button">Extreme Number Memory</button></Link>
+      <Link to="/colormatch" className="menu-link"><button className="menu-button">Color Match</button></Link>
+      <Link to="/crazycolormatch" className="menu-link"><button className="menu-button">Crazy Color Match</button></Link>
+      <Link to="/deathcolormatch" className="menu-link"><button className="menu-button">Death Color Match</button></Link>
     </div>
   )
 }

@@ -15,7 +15,8 @@ import HighScores from "./HighScores";
 
 function App() {
   return (
-    <div>
+    <div className="">
+
       <Navbar/>
 
       <Switch>

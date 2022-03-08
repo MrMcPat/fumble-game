@@ -1,5 +1,6 @@
 import React, {useState, useEffect} from 'react'
 import NumberTile from "./NumberTile"
+import TextField from '@mui/material/TextField';
 
 function NumberMemory() {
 const [randomNums, setRandomNums] = useState([])
@@ -36,7 +37,17 @@ useEffect(() => {
   function handleSubmit(e) {
     e.preventDefault()
     if (input === randomNums.join("")) {
-      setRandomNums([...randomNums, randomNumber])
+      if (randomNums.slice(-1).join() === randomNumber) {
+        if (randomNumber === 225) {
+          setRandomNums([...randomNums, randomNumber-1])
+        } else if (randomNumber === 1) {
+          setRandomNums([...randomNums, randomNumber+1])
+        } else {
+          setRandomNums([...randomNums, randomNumber-1])
+        }
+      } else {
+        setRandomNums([...randomNums, randomNumber])
+      }
       setCorrect(true)
       setCounter(counter+1)
       setScore(counter)
@@ -61,8 +72,8 @@ const tileGrid = tileCount.map(tile => {
       <h3>{correct ? levelTitle : `WRONG! YOUR SCORE IS ${score}. ${insult} TRY AGAIN!`}</h3>
       <button disabled={disable} onClick={handleStart}>Start!</button>
       <form onSubmit={handleSubmit}>
-        <input value={input} onChange={e => setInput(e.target.value)}></input>
-        <input disabled={!disable} type="submit"></input>
+        <TextField autoComplete="off" label="Enter your number..." variant="standard" value={input} onChange={e => setInput(e.target.value)}></TextField>
+        <input style={{display: "none"}}disabled={!disable} type="submit"></input>
       </form>
       <div className="extreme-tile-container">
        {tileGrid} 
