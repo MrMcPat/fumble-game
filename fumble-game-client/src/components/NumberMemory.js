@@ -67,7 +67,7 @@ const tileGrid = tileCount.map(tile => {
 })
 
   return (
-    <div style={{height: "500px"}}>
+    <div style={{height: "500px"}} className="fade-in">
       <h3>MEMORIZE ALL THE NUMBERS THAT HAVE FLASHED 🤡</h3>
       <h3>{correct ? levelTitle : `WRONG! HERE'S YOUR SCORE ${score}. A LAME JOKE TO MAKE YOU FEEL BETTER: ${lameJoke}`}</h3>
       <button disabled={disable} onClick={handleStart}>Start!</button>

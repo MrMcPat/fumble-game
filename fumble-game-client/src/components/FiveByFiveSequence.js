@@ -77,7 +77,7 @@ function FiveByFiveSequence() {
   })
 
   return (
-    <div style={{height: "500px"}}>
+    <div style={{height: "500px"}} className="fade-in">
       <h3>{correct ? levelTitle : `WRONG! YOUR SCORE IS ${score-1}. ${insult}. TRY AGAIN!`}</h3>
       <button disabled={disable} onClick={handleRandomNumber}>Start!</button>
       <button onClick={handleToggle}>Afraid to fumble?</button>

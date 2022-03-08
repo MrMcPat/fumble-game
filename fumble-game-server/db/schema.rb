@@ -10,22 +10,18 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_03_04_162829) do
+ActiveRecord::Schema.define(version: 2022_03_08_180026) do
 
   create_table "game_modes", force: :cascade do |t|
     t.string "game_mode"
   end
 
-  create_table "players", force: :cascade do |t|
+  create_table "player_scores", force: :cascade do |t|
     t.string "name"
-  end
-
-  create_table "scores", force: :cascade do |t|
     t.integer "high_score"
     t.string "game_result"
     t.string "date"
     t.string "time"
-    t.integer "player_id"
     t.integer "game_mode_id"
   end
 

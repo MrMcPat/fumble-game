@@ -79,7 +79,7 @@ function FourByFourSequence() {
   })
 
   return (
-    <div style={{height: "500px"}}>
+    <div style={{height: "500px"}} className="fade-in">
       <h3>{correct ? levelTitle : `Wrong! Your score is ${score-1}. ${quotes} But try again, you can do it!`}</h3>
       <button disabled={disable} onClick={handleRandomNumber}>Start!</button>
       <button onClick={handleToggle}>Afraid to fumble?</button>

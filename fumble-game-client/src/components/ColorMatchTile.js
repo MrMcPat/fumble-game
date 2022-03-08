@@ -8,7 +8,7 @@ function ColorMatchTile({tileColor, onClickedTile}) {
     }
 
   return (
-    <button style={{background: `${tileColor}`}}className="sixbysix-tile" onClick={handleClick}></button>
+    <button style={{background: `${tileColor}`}}className="sixbysix-tile fade-in-tile" onClick={handleClick}></button>
   )
 }
 

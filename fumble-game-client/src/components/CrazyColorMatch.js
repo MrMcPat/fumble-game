@@ -51,7 +51,7 @@ function CrazyColorMatch() {
     })
 
   return (
-    <div>
+    <div className="fade-in">
         <h3>Crazy Color Match</h3>
         <h5>{correct ? `Level ${counter}` : `Latest Streak: ${score}`}</h5>
     <div style={{background: randomColor}} className="color-match"></div>

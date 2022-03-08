@@ -77,7 +77,7 @@ function ThreeByThreeSequence() {
   })
 
   return (
-    <div style={{height: "500px"}}>
+    <div style={{height: "500px"}} className="fade-in">
       <h3>{correct ? levelTitle : `Oh dear! Incorrect. Your score is ${score-1}~ ${compliments}. Try again sweetie<3`}</h3>
       <button disabled={disable} onClick={handleRandomNumber}>Start!</button>
       <button onClick={handleToggle}>Afraid to fumble?</button>

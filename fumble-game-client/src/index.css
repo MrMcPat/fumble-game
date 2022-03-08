@@ -6,6 +6,8 @@ body {
   text-align: center;
   background: #2FA4FF;
   color: white;
+  animation: fadeIn 1s ease;
+  animation-fill-mode: forwards;
 }
 
 code {
@@ -39,6 +41,20 @@ code {
   }
 }
 
+.fade-in {
+  animation: fadeIn 1s ease;
+  animation-fill-mode: forwards;
+}
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0
+  }
+  100% {
+    opacity: 1
+  }
+}
+
 .navbar {
   padding: 10px;
   background: transparent;
@@ -47,6 +63,12 @@ code {
 .navbar h1 {
   display: inline;
   color: white;
+  margin: 0 100px;
+}
+
+.menu-page {
+  font-family: 'Press Start 2P', cursive;
+  margin-top: 75px;
 }
 
 .menu-link {
@@ -59,7 +81,7 @@ code {
   justify-content: center;
   display: grid;
   grid-template-columns: auto auto auto;
-  margin-top: 100px;
+
 }
 
 .threebythree-tile {
@@ -326,7 +348,7 @@ code {
   background-size: 400% 400%;
   animation: Gradient 15s ease infinite;
   position: relative;
-  height: 100vh;
+  height: 200vh;
   width: 100%;
   overflow: hidden;
   padding:0;

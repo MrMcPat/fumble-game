@@ -63,7 +63,7 @@ function DeathColorMatch() {
     })
 
   return (
-    <div>
+    <div className="fade-in"> 
         <h3>Death Color Match</h3>
         <h5>{correct ? `Level ${counter}` : `Latest Streak: ${score}`}</h5>
     <div style={{background: randomColor}} className="color-match"></div>
