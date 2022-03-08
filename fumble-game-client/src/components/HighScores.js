@@ -5,7 +5,7 @@ function HighScores() {
   const [playerData, setPlayerData] = useState([])
 
   useEffect(() => {
-    fetch("http://localhost:9292/players")
+    fetch("http://localhost:9292/player_scores")
     .then(resp => resp.json())
     .then(data => setPlayerData(data))
   }, [])
@@ -23,8 +23,11 @@ function HighScores() {
         <div className="cube"></div>
         <div className="cube"></div>
         <div className="cube"></div>
-        
-        {playerDataList}
+    <div className="player-score-container">
+    {playerDataList}
+    </div>
+
+
       </div>
   )
 }

@@ -2,14 +2,14 @@ import React from 'react'
 
 function HighScoreCard({player}) {
 
-    const playerScoreList = player.scores.map((scores, index) => {
-        return <h4 key={index}>{scores.high_score}</h4>
-    })
-
   return (
-    <div>
-        <h3>{player.name}</h3>
-        High Score: {playerScoreList}
+    <div className="player-score-card">
+        <p>Name: {player.name}</p>
+        <p>{player.game_mode.game_mode}</p>
+        <p>High Score: {player.high_score}</p>
+        <p>{player.game_result}</p>
+        <p>{player.date}</p>
+        <p>{player.time}</p>
     </div>
   )
 }
