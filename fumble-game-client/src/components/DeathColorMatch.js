@@ -59,7 +59,7 @@ function DeathColorMatch() {
 
   return (
     <div>
-        <h3>Color Match</h3>
+        <h3>Death Color Match</h3>
         <h5>Level {counter}</h5>
     <div style={{background: randomColor}} className="color-match"></div>
      <div className="twentyfourbysix-tile-container">
