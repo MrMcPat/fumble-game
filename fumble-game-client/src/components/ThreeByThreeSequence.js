@@ -11,6 +11,7 @@ function ThreeByThreeSequence() {
   const [counter, setCounter] = useState(0)
   const [score, setScore] = useState("")
   const [disable, setDisable] = useState(false)
+  const [saveDisable, setSaveDisable] = useState(true)
   const [correct, setCorrect] = useState(true)
   const [toggle, setToggle] = useState(false)
   const [open, setOpen] = useState(false);
@@ -60,6 +61,7 @@ function ThreeByThreeSequence() {
     setCounter(counter+1)
     setScore(counter)
     setDisable(true)
+    setSaveDisable(true)
     setCorrect(true)
   }
 
@@ -82,6 +84,7 @@ function ThreeByThreeSequence() {
         setClickedSequence([])
         setCounter(0)
         setDisable(false)
+        setSaveDisable(false)
         setCorrect(false)
         document.body.style.background= "#FF1700"
         setTimeout(() => {document.body.style.background="#2FA4FF"}, 200)
@@ -97,16 +100,17 @@ function ThreeByThreeSequence() {
   return (
     <div style={{height: "500px"}} className="fade-in">
       <h3>{correct ? levelTitle : `Oh dear! Incorrect. Your score is ${score-1}~ ${compliments}. Try again sweetie<3`}</h3>
-      <button className="game-button" disabled={disable} onClick={handleRandomNumber}>Start!</button>
+      <button className="game-button" disabled={disable} style={{opacity: disable ? ".5" : "1"}} onClick={handleRandomNumber}>Start!</button>
       <button className="game-button" onClick={handleToggle}>Afraid to fumble?</button>
-      <button className="game-button" disabled={disable} onClick={handleOpen}>Save Score</button>
+      <button className="game-button" disabled={saveDisable} style={{opacity: saveDisable ? ".5" : "1"}} onClick={handleOpen}>Save Score</button>
       <Modal 
         open={open} 
         onClose={handleClose}
         aria-labelledby="modal-modal-title"
         aria-describedby="modal-modal-description">
           <Box sx={style} className="modal">
-            <h3>Your score is: {score-1}</h3>
+            <h2>Sequence Memory (3x3)</h2>
+            <h3>Your score is: {score === "" ? "" : score-1}</h3>
             <label>Enter your name:</label>
             <input></input>
           </Box>

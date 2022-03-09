@@ -8,6 +8,7 @@ const [randomNums, setRandomNums] = useState([])
 const [counter, setCounter] = useState(0)
 const [score, setScore] = useState("")
 const [disable, setDisable] = useState(false)
+const [saveDisable, setSaveDisable] = useState(true)
 const [correct, setCorrect] = useState(true)
 const [input, setInput] = useState("")
 const [lameJoke, setLameJoke] = useState([])
@@ -47,6 +48,7 @@ useEffect(() => {
   function handleStart() {
     setRandomNums([...randomNums, randomNumber])
     setDisable(true)
+    setSaveDisable(true)
     setCounter(counter+1)
     setScore(counter)
   }
@@ -71,6 +73,7 @@ useEffect(() => {
     } else {
       setRandomNums([])
       setDisable(false)
+      setSaveDisable(false)
       setCorrect(false)
       setCounter(0)
       document.body.style.background= "#FF1700"
@@ -87,14 +90,15 @@ const tileGrid = tileCount.map(tile => {
     <div style={{height: "500px"}} className="fade-in">
       <h3>MEMORIZE ALL THE NUMBERS THAT HAVE FLASHED 🤡</h3>
       <h3>{correct ? levelTitle : `WRONG! HERE'S YOUR SCORE ${score}. A LAME JOKE TO MAKE YOU FEEL BETTER: ${lameJoke}`}</h3>
-      <button className="game-button" disabled={disable} onClick={handleStart}>Start!</button>
-      <button className="game-button" disabled={disable} onClick={handleOpen}>Save Score</button>
+      <button className="game-button" disabled={disable} style={{opacity: disable ? ".5" : "1"}} onClick={handleStart}>Start!</button>
+      <button className="game-button" disabled={saveDisable} style={{opacity: saveDisable ? ".5" : "1"}} onClick={handleOpen}>Save Score</button>
       <Modal 
         open={open} 
         onClose={handleClose}
         aria-labelledby="modal-modal-title"
         aria-describedby="modal-modal-description">
           <Box sx={style} className="modal">
+            <h2>Number Memory</h2>
             <h3>Your score is: {score}</h3>
             <label>Enter your name:</label>
             <input></input>
