@@ -468,7 +468,7 @@ $gap: .5*$char-w;
 $n-char: 10;
 $in-w: $n-char*($char-w + $gap);
 
-input {
+.game-input {
 	display: block;
 	margin: 10px auto;
 	border: none;

@@ -109,10 +109,13 @@ function ThreeByThreeSequence() {
         aria-labelledby="modal-modal-title"
         aria-describedby="modal-modal-description">
           <Box sx={style} className="modal">
+            <form>
             <h2>Sequence Memory (3x3)</h2>
             <h3>Your score is: {score === "" ? "" : score-1}</h3>
             <label>Enter your name:</label>
-            <input></input>
+            <input className="game-input"></input>
+            <input className="game-button" type="submit"/>
+            </form>
           </Box>
       </Modal>
     <div className="threexthree-tile-container">

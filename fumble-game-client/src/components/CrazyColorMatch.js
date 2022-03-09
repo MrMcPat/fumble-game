@@ -70,10 +70,13 @@ function CrazyColorMatch() {
         aria-labelledby="modal-modal-title"
         aria-describedby="modal-modal-description">
           <Box sx={style} className="modal">
+            <form>
             <h2>Crazy Color Match</h2>
             <h3>Your score is: {score}</h3>
             <label>Enter your name:</label>
-            <input></input>
+            <input className="game-input"></input>
+            <input className="game-button" type="submit"/>
+            </form>
           </Box>
       </Modal>
     <div style={{background: randomColor}} className="color-match"></div>

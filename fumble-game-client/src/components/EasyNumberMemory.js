@@ -97,14 +97,17 @@ const tileGrid = tileCount.map(tile => {
         aria-labelledby="modal-modal-title"
         aria-describedby="modal-modal-description">
           <Box sx={style} className="modal">
+            <form>
             <h2>Easy Number Memory</h2>
             <h3>Your score is: {score}</h3>
             <label>Enter your name:</label>
-            <input></input>
+            <input className="game-input"></input>
+            <input className="game-button" type="submit"/>
+            </form>
           </Box>
       </Modal>
       <form onSubmit={handleSubmit}>
-        <input autoComplete="off" variant="standard" value={input} onChange={e => setInput(e.target.value)}></input>
+        <input className="game-input" autoComplete="off" variant="standard" value={input} onChange={e => setInput(e.target.value)}></input>
         <input style={{display: "none"}}disabled={!disable} type="submit"></input>
       </form>
       <div className="sevenbyseven-tile-container">
