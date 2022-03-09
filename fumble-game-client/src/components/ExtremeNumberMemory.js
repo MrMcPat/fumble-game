@@ -54,7 +54,7 @@ useEffect(() => {
   function handleSubmit(e) {
     e.preventDefault()
     if (input === randomNums.join("")) {
-      if (randomNums.slice(-1).join() === randomNumber) {
+      if (randomNums.slice(-1).join() == randomNumber) {
         if (randomNumber === 225) {
           setRandomNums([...randomNums, randomNumber-1])
         } else if (randomNumber === 1) {

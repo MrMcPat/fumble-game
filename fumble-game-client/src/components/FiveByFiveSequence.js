@@ -41,7 +41,7 @@ function FiveByFiveSequence() {
   }, [])
 
   function handleRandomNumber() {
-    if (randomSequence.slice(-1).join() === randomNumber) {
+    if (randomSequence.slice(-1).join() == randomNumber) {
       if (randomNumber === 25) {
         setRandomSequence([...randomSequence, randomNumber-1])
         setRandomTile(randomNumber-1)
