@@ -1,6 +1,7 @@
 import React, {useState, useEffect} from 'react'
 import EasyNumberTile from "./EasyNumberTile"
-import TextField from '@mui/material/TextField';
+import Modal from '@mui/material/Modal'
+import Box from '@mui/material/Box'
 
 function EasyNumberMemory() {
 const [randomNums, setRandomNums] = useState([])
@@ -10,6 +11,22 @@ const [disable, setDisable] = useState(false)
 const [correct, setCorrect] = useState(true)
 const [input, setInput] = useState("")
 const [compliment, setCompliment] = useState([])
+const [open, setOpen] = useState(false);
+
+  const handleOpen = () => setOpen(true);
+  const handleClose = () => setOpen(false);
+
+  const style = {
+    position: 'absolute',
+    top: '50%',
+    left: '50%',
+    transform: 'translate(-50%, -50%)',
+    width: 400,
+    bgcolor: 'background.paper',
+    border: '2px solid #000',
+    boxShadow: 24,
+    p: 4,
+  };
 
 const levelTitle = counter === 0 ? "PSSSSST! Try to get the longest number." : `Level ${counter}`
 
@@ -69,9 +86,21 @@ const tileGrid = tileCount.map(tile => {
     <div style={{height: "500px"}} className="fade-in">
       <h3>Memorize all the numbers that have flashed, darling~ 🥰</h3>
       <h3>{correct ? levelTitle : `Oh no...Your score is ${score}. ${compliment}`}</h3>
-      <button disabled={disable} onClick={handleStart}>Start!</button>
+      <button className="game-button" disabled={disable} onClick={handleStart}>Start!</button>
+      <button className="game-button" disabled={disable} onClick={handleOpen}>Save Score</button>
+      <Modal 
+        open={open} 
+        onClose={handleClose}
+        aria-labelledby="modal-modal-title"
+        aria-describedby="modal-modal-description">
+          <Box sx={style} className="modal">
+            <h3>Your score is: {score}</h3>
+            <label>Enter your name:</label>
+            <input></input>
+          </Box>
+      </Modal>
       <form onSubmit={handleSubmit}>
-        <TextField autoComplete="off" label="Enter your number..." variant="standard" value={input} onChange={e => setInput(e.target.value)}></TextField>
+        <input autoComplete="off" variant="standard" value={input} onChange={e => setInput(e.target.value)}></input>
         <input style={{display: "none"}}disabled={!disable} type="submit"></input>
       </form>
       <div className="sevenbyseven-tile-container">

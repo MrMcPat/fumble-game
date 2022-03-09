@@ -1,5 +1,7 @@
 import React, {useState, useEffect} from 'react'
 import ColorMatchTile from "./ColorMatchTile"
+import Modal from '@mui/material/Modal'
+import Box from '@mui/material/Box'
 
 function CrazyColorMatch() {
     const [randomColor, setRandomColor] = useState("")
@@ -7,6 +9,23 @@ function CrazyColorMatch() {
     const [correct, setCorrect] = useState(true)
     const [counter, setCounter] = useState(0)
     const [score, setScore] = useState(0)
+    const [open, setOpen] = useState(false);
+
+    const handleOpen = () => setOpen(true);
+    const handleClose = () => setOpen(false);
+  
+    const style = {
+      position: 'absolute',
+      top: '50%',
+      left: '50%',
+      transform: 'translate(-50%, -50%)',
+      width: 400,
+      bgcolor: 'background.paper',
+      border: '2px solid #000',
+      boxShadow: 24,
+      p: 4,
+    };
+    
 
     const array = ["#F24A28", "#A73720", "#CA4327", "#F0B42B", "#CE9D2D", "#B38828", 
     "#BFEA35", "#9DC12A", "#87A626", "#23A44F", "#1D8641", "#1A7439", 
@@ -54,6 +73,18 @@ function CrazyColorMatch() {
     <div className="fade-in">
         <h3>Crazy Color Match</h3>
         <h5>{correct ? `Level ${counter}` : `Latest Streak: ${score}`}</h5>
+        <button className="game-button" onClick={handleOpen}>Save Score</button>
+        <Modal 
+        open={open} 
+        onClose={handleClose}
+        aria-labelledby="modal-modal-title"
+        aria-describedby="modal-modal-description">
+          <Box sx={style} className="modal">
+            <h3>Your score is: {score}</h3>
+            <label>Enter your name:</label>
+            <input></input>
+          </Box>
+      </Modal>
     <div style={{background: randomColor}} className="color-match"></div>
      <div className="twelvebysix-tile-container">
         {tileGrid}

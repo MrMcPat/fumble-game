@@ -1,5 +1,7 @@
 import React, {useState, useEffect} from 'react'
 import ThreeByThreeTile from './ThreeByThreeTile'
+import Modal from '@mui/material/Modal'
+import Box from '@mui/material/Box'
 
 function ThreeByThreeSequence() {
   const [randomTile, setRandomTile] = useState()
@@ -11,6 +13,22 @@ function ThreeByThreeSequence() {
   const [disable, setDisable] = useState(false)
   const [correct, setCorrect] = useState(true)
   const [toggle, setToggle] = useState(false)
+  const [open, setOpen] = useState(false);
+
+  const handleOpen = () => setOpen(true);
+  const handleClose = () => setOpen(false);
+
+  const style = {
+    position: 'absolute',
+    top: '50%',
+    left: '50%',
+    transform: 'translate(-50%, -50%)',
+    width: 400,
+    bgcolor: 'background.paper',
+    border: '2px solid #000',
+    boxShadow: 24,
+    p: 4,
+  };
 
   const tileCount = [1, 2, 3, 4, 5, 6, 7, 8, 9]
   const randomNumber = Math.floor(Math.random()*9)+1
@@ -79,8 +97,20 @@ function ThreeByThreeSequence() {
   return (
     <div style={{height: "500px"}} className="fade-in">
       <h3>{correct ? levelTitle : `Oh dear! Incorrect. Your score is ${score-1}~ ${compliments}. Try again sweetie<3`}</h3>
-      <button disabled={disable} onClick={handleRandomNumber}>Start!</button>
-      <button onClick={handleToggle}>Afraid to fumble?</button>
+      <button className="game-button" disabled={disable} onClick={handleRandomNumber}>Start!</button>
+      <button className="game-button" onClick={handleToggle}>Afraid to fumble?</button>
+      <button className="game-button" disabled={disable} onClick={handleOpen}>Save Score</button>
+      <Modal 
+        open={open} 
+        onClose={handleClose}
+        aria-labelledby="modal-modal-title"
+        aria-describedby="modal-modal-description">
+          <Box sx={style} className="modal">
+            <h3>Your score is: {score-1}</h3>
+            <label>Enter your name:</label>
+            <input></input>
+          </Box>
+      </Modal>
     <div className="threexthree-tile-container">
       {tileGrid}
     </div>

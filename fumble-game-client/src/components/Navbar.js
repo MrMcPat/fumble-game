@@ -1,15 +1,25 @@
 import React from "react";
-import {Link} from "react-router-dom"
-import ScoreboardIcon from '@mui/icons-material/Scoreboard';
-import ArrowBackIcon from '@mui/icons-material/ArrowBack';
+import { Link } from "react-router-dom";
+import EmojiEventsIcon from '@mui/icons-material/EmojiEvents';
+
 
 function Navbar() {
   return (
-    <div className="navbar">
-      <Link style={{textDecoration: "none", color: "white"}} to="/"><ArrowBackIcon fontSize="large"/></Link>
+    <nav className="navbar">
+      <Link style={{ textDecoration: "none", color: "white" }} to="/">
+        <button class="back back--one">
+          <span class="top-left"></span>
+          <span class="top-right"></span>
+          <span class="bottom-left"></span>
+          <span class="bottom-right"></span>
+          <span class="stalk"></span>
+        </button>
+      </Link>
       <h1>Brain Fumble</h1>
-      <Link style={{textDecoration: "none", color: "white"}} to="/highscores"><ScoreboardIcon fontSize="large"/></Link>
-    </div>
+      <Link style={{ textDecoration: "none", color: "white" }} to="/highscores">
+        <EmojiEventsIcon className="high-score-icon" sx={{ fontSize: 50 }}/>
+      </Link>
+    </nav>
   );
 }
 

@@ -17,7 +17,7 @@ function HighScores() {
 
   return (
     <div className="background fade-in">
-      <h1>Highscores</h1>    
+      <h1>Leaderboards</h1>    
         <div className="cube"></div>
         <div className="cube"></div>
         <div className="cube"></div>

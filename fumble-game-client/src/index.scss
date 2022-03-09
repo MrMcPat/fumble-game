@@ -8,6 +8,7 @@ body {
   color: white;
   animation: fadeIn 1s ease;
   animation-fill-mode: forwards;
+  letter-spacing: 2.5px;
 }
 
 code {
@@ -56,14 +57,23 @@ code {
 }
 
 .navbar {
-  padding: 10px;
+  padding: 10px 40px;
   background: transparent;
+  text-align: justify;
+  font-family: 'Press Start 2P', cursive;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
 }
 
 .navbar h1 {
   display: inline;
   color: white;
-  margin: 0 80px;
+  padding-left: 50px;
+}
+
+.high-score-icon {
+
 }
 
 .menu-page {
@@ -92,6 +102,8 @@ code {
   height: 100px;
   background: #94DAFF;
   margin: 10px;
+  color: white;
+  font-family: 'Orbitron', sans-serif;
 }
 
 .threebythree-tile:hover {
@@ -116,6 +128,8 @@ code {
   height: 75px;
   background: #94DAFF;
   margin: 5px;
+  color: white;
+  font-family: 'Orbitron', sans-serif;
 }
 
 .fourbyfour-tile:hover {
@@ -140,6 +154,8 @@ code {
   height: 60px;
   background: #94DAFF;
   margin: 2.5px;
+  color: white;
+  font-family: 'Orbitron', sans-serif;
 }
 
 .fivebyfive-tile:hover {
@@ -164,6 +180,8 @@ code {
   height: 50px;
   background: #94DAFF;
   margin: 2.5px;
+  color: white;
+  font-family: 'Orbitron', sans-serif;
 }
 
 .sixbysix-tile:hover {
@@ -192,10 +210,11 @@ code {
   background: transparent;
   border: none;
   border-radius: 15%;
-  width: 45px;
-  height: 45px;
+  width: 55px;
+  height: 55px;
   background: #94DAFF;
   margin: 2.5px;
+  color: rgb(65, 103, 228);
 }
 
 .sevenbyseven-tile:hover {
@@ -212,10 +231,11 @@ code {
   background: transparent;
   border: none;
   border-radius: 15%;
-  width: 30px;
-  height: 30px;
+  width: 40px;
+  height: 40px;
   background: #94DAFF;
   margin: 1.5px;
+  color: rgb(65, 103, 228);
 }
 
 .massive-tile:hover {
@@ -226,6 +246,22 @@ code {
   justify-content: center;
   display: grid;
   grid-template-columns: auto auto auto auto auto auto auto auto auto auto;
+}
+
+.extreme-tile {
+  background: transparent;
+  border: none;
+  border-radius: 15%;
+  width: 25px;
+  height: 25px;
+  background: #94DAFF;
+  margin: 1.5px;
+  color: rgb(65, 103, 228);
+  font-size: 10px;
+}
+
+.extreme-tile:hover {
+  transform: scale(.975);
 }
 
 .extreme-tile-container {
@@ -425,4 +461,163 @@ code {
 
 .player-score-card {
   margin: 20px;
+}
+
+.modal {
+  background: #2FA4FF !important;
+}
+
+$char-w: 1ch;
+$gap: .5*$char-w;
+$n-char: 10;
+$in-w: $n-char*($char-w + $gap);
+
+input {
+	display: block;
+	margin: 10px auto;
+	border: none;
+	padding: 0;
+	width: $in-w;
+	background: repeating-linear-gradient(90deg, 
+		white 0, white $char-w, 
+		transparent 0, transparent $char-w + $gap) 
+		0 100%/ #{$in-w - $gap} 2px no-repeat;
+	font: 2.5ch droid sans mono, consolas, monospace;
+	letter-spacing: $gap;
+	
+	&:focus {
+		outline: none;
+		color: white;
+	}
+}
+
+.game-button {
+  text-align: center;
+  display: inline-block;
+  padding: 10px 40px;
+  border: 1px solid #fff;
+  cursor: pointer;
+  letter-spacing: 2px;
+  position:relative;
+  overflow:hidden;
+  margin: 0 20px;
+  background: transparent;
+  color: white;
+  font-family: 'Orbitron', sans-serif;
+}
+
+.game-button:before {
+  content: "";
+  position: absolute;
+  height: 150px;
+  width: 50px;
+  background : #fff;
+  left: -55px;
+  top: -40px;
+  transform: rotate(37deg);
+  transition: all .3s;
+  opacity: 0.3;
+}
+
+.game-button:hover:before {
+  left:95%;
+}
+
+.back {
+  background: none;
+  border: 0;
+  position: absolute;
+  height: 60px;
+  width: 60px;
+  top: -10px;
+}
+
+.top-left,
+.top-right,
+.bottom-left,
+.bottom-right,
+.stalk {
+  display: block;
+  position: absolute;
+  height: 0.2rem;
+  width: 1.2rem;
+  background: white;
+  border-radius: 0.2rem;
+  z-index: 2;
+  opacity: 1;
+  left: 50%;
+}
+
+.top-left {
+  transform: rotate(45deg);
+  top: 2.4rem;
+}
+
+.top-right {
+  transform: rotate(135deg);
+  top: 2.4rem;
+}
+
+.bottom-left {
+  transform: rotate(135deg);
+  top: 3.2rem;
+}
+
+.bottom-right {
+  transform: rotate(45deg);
+  top: 3.2rem;
+}
+
+.top-left, .bottom-left {
+  margin-left: -1rem;
+}
+
+.top-right, .bottom-right {
+  margin-left: -0.2rem;
+}
+
+.stalk {
+  top: 2.8rem;
+  width: 2rem;
+  opacity: 0;
+}
+
+
+
+.back--one {
+  .top-left, .bottom-left {
+    transition: opacity .3s 1s;
+  }
+
+  .top-right, .bottom-right {
+    transition: margin-left .5s .5s;
+  }
+
+  .stalk {
+    transition: margin-left .5s .5s, opacity .3s 1s;
+  }
+
+  .text {
+    transition: opacity .3s 1s;
+  }
+
+  &:hover {
+    .text {
+      opacity: 1;
+      transition: opacity .3s .5s;
+    }
+    .top-left, .bottom-left {
+      opacity: 0;
+      transition: opacity .3s .5s;
+    }
+    .top-right, .bottom-right {
+      margin-left: -1.3rem;
+      transition: margin-left .5s .8s;
+    }
+    .stalk {
+      opacity: 1;
+      margin-left: -1.2rem;
+      transition: margin-left .5s .8s, opacity .3s .5s;
+    }
+  }
 }
