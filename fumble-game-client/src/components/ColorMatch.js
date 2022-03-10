@@ -9,7 +9,8 @@ function ColorMatch() {
     const [correct, setCorrect] = useState(true)
     const [counter, setCounter] = useState(0)
     const [score, setScore] = useState(0)
-    const [open, setOpen] = useState(false);
+    const [open, setOpen] = useState(false)
+    const [player, setPlayer] = useState("")
 
     const handleOpen = () => setOpen(true);
     const handleClose = () => setOpen(false);
@@ -55,6 +56,30 @@ function ColorMatch() {
         }
     }
 
+    function handleSubmit(e) {
+      e.preventDefault()
+      if (player.length === 0) {
+        alert("Please enter a name!")
+      } else {
+      fetch("http://localhost:9292/player_scores", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json"
+        },
+        body: JSON.stringify({
+          name: player,
+          high_score: score,
+          date: (new Date().getMonth()+1)+'-'+new Date().getDate()+'-'+new Date().getFullYear(),
+          time: new Date().getHours() + ":" + String(new Date().getMinutes()).padStart(2, '0'),
+          game_mode_id: 7
+        })
+      })
+      .then(resp => resp.json())
+      .then(data => console.log(data))
+      handleClose()
+    }
+  }
+
     const tileGrid = randomizedArray.map((tile, index) => {
         return <ColorMatchTile key={index} tileColor={tile} index={index} onClickedTile={handleClickedTile}/>
     })
@@ -70,11 +95,11 @@ function ColorMatch() {
         aria-labelledby="modal-modal-title"
         aria-describedby="modal-modal-description">
           <Box sx={style} className="modal">
-            <form>
+            <form onSubmit={handleSubmit}>
             <h2>Color Match</h2>
             <h3>Your score is: {score}</h3>
             <label>Enter your name:</label>
-            <input className="game-input"></input>
+            <input className="game-input" value={player} onChange={e => setPlayer(e.target.value)}></input>
             <input className="game-button" type="submit"/>
             </form>
           </Box>

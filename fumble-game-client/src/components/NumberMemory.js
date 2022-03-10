@@ -12,7 +12,9 @@ const [saveDisable, setSaveDisable] = useState(true)
 const [correct, setCorrect] = useState(true)
 const [input, setInput] = useState("")
 const [lameJoke, setLameJoke] = useState([])
-const [open, setOpen] = useState(false);
+const [open, setOpen] = useState(false)
+const [number, setNumber] = useState("")
+const [player, setPlayer] = useState("")
 
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
@@ -70,6 +72,7 @@ useEffect(() => {
       setCorrect(true)
       setCounter(counter+1)
       setScore(counter)
+      setNumber(input)
     } else {
       setRandomNums([])
       setDisable(false)
@@ -81,6 +84,31 @@ useEffect(() => {
     }
     setInput("")
   }
+
+  function handleSubmitScore(e) {
+    e.preventDefault()
+    if (player.length === 0) {
+      alert("Please enter a name!")
+    } else {
+    fetch("http://localhost:9292/player_scores", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify({
+        name: player,
+        high_score: score,
+        game_result: number,
+        date: (new Date().getMonth()+1)+'-'+new Date().getDate()+'-'+new Date().getFullYear(),
+        time: new Date().getHours() + ":" + new Date().getMinutes(),
+        game_mode_id: 5
+      })
+    })
+    .then(resp => resp.json())
+    .then(data => console.log(data))
+    handleClose()
+  }
+}
 
 const tileGrid = tileCount.map(tile => {
   return <NumberTile key={tile} tileNumber={tile} randomNums={randomNums}/>
@@ -98,11 +126,11 @@ const tileGrid = tileCount.map(tile => {
         aria-labelledby="modal-modal-title"
         aria-describedby="modal-modal-description">
           <Box sx={style} className="modal">
-            <form>
+            <form onSubmit={handleSubmitScore}>
             <h2>Number Memory</h2>
             <h3>Your score is: {score}</h3>
             <label>Enter your name:</label>
-            <input className="game-input"></input>
+            <input className="game-input" value={player} onChange={e => setPlayer(e.target.value)}></input>
             <input className="game-button" type="submit"/>
             </form>
           </Box>

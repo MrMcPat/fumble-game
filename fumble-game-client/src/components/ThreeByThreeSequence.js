@@ -14,7 +14,8 @@ function ThreeByThreeSequence() {
   const [saveDisable, setSaveDisable] = useState(true)
   const [correct, setCorrect] = useState(true)
   const [toggle, setToggle] = useState(false)
-  const [open, setOpen] = useState(false);
+  const [open, setOpen] = useState(false)
+  const [player, setPlayer] = useState("")
 
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
@@ -93,6 +94,30 @@ function ThreeByThreeSequence() {
     }
   }
 
+  function handleSubmit(e) {
+    e.preventDefault()
+    if (player.length === 0) {
+      alert("Please enter a name!")
+    } else {
+    fetch("http://localhost:9292/player_scores", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify({
+        name: player,
+        high_score: score-1,
+        date: (new Date().getMonth()+1)+'/'+new Date().getDate()+'/'+new Date().getFullYear(),
+        time: new Date().getHours() + ":" + String(new Date().getMinutes()).padStart(2, '0'),
+        game_mode_id: 1
+      })
+    })
+    .then(resp => resp.json())
+    .then(data => console.log(data))
+    handleClose()
+    }
+  }
+
   const tileGrid = tileCount.map(tile => {
     return <ThreeByThreeTile key={tile} tileNumber={tile} randomTile={randomTile} randomSequence={randomSequence} disable={disable} onClickedNumber={handleClickedNumber} onRandomNumber={handleRandomNumber} toggle={toggle}/>
   })
@@ -109,11 +134,11 @@ function ThreeByThreeSequence() {
         aria-labelledby="modal-modal-title"
         aria-describedby="modal-modal-description">
           <Box sx={style} className="modal">
-            <form>
+            <form onSubmit={handleSubmit}>
             <h2>Sequence Memory (3x3)</h2>
             <h3>Your score is: {score === "" ? "" : score-1}</h3>
             <label>Enter your name:</label>
-            <input className="game-input"></input>
+            <input className="game-input" value={player} onChange={e => setPlayer(e.target.value)}></input>
             <input className="game-button" type="submit"/>
             </form>
           </Box>

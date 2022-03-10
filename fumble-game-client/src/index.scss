@@ -384,8 +384,9 @@ code {
   width: 100%;
   overflow: auto;
   padding:0;
-  margin:0px;
+  margin: 0px;
 }
+
 .cube {
   position: absolute;
   top: 80vh;
@@ -461,6 +462,7 @@ code {
 
 .modal {
   background: #2FA4FF !important;
+  border-color: white !important;
 }
 
 $char-w: 1ch;
@@ -494,8 +496,8 @@ $in-w: $n-char*($char-w + $gap);
   border: 1px solid #fff;
   cursor: pointer;
   letter-spacing: 2.5px;
-  position:relative;
-  overflow:hidden;
+  position: relative;
+  overflow: hidden;
   margin: 0 20px;
   background: transparent;
   color: white;

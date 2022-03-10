@@ -6,7 +6,7 @@ class ApplicationController < Sinatra::Base
   end
 
   get "/player_scores" do
-    player_scores = PlayerScore.all
+    player_scores = PlayerScore.all.order(id: :desc)
     player_scores.to_json(include: :game_mode)
   end
 
@@ -16,53 +16,13 @@ class ApplicationController < Sinatra::Base
   end
 
   get "/game_modes/game_mode_popularity" do
-    game_mode = GameMode.game_mode_popularity
-    game_mode.to_json
+    game_modes = GameMode.game_mode_popularity
+    game_modes.to_json
   end
 
-  get "/game_modes/sequence_game_3x3" do
-    game_mode = GameMode.sequence_game_3x3
-    game_mode.to_json
-  end
-
-  get "/game_modes/sequence_game_4x4" do
-    game_mode = GameMode.sequence_game_4x4
-    game_mode.to_json
-  end
-
-  get "/game_modes/sequence_game_5x5" do
-    game_mode = GameMode.sequence_game_5x5
-    game_mode.to_json
-  end
-
-  get "/game_modes/easy_number_memory" do
-    game_mode = GameMode.easy_number_memory
-    game_mode.to_json
-  end
-
-  get "/game_modes/number_memory" do
-    game_mode = GameMode.number_memory
-    game_mode.to_json
-  end
-
-  get "/game_modes/extreme_number_memory" do
-    game_mode = GameMode.extreme_number_memory
-    game_mode.to_json
-  end
-
-  get "/game_modes/color_match" do
-    game_mode = GameMode.color_match
-    game_mode.to_json
-  end
-
-  get "/game_modes/crazy_color_match" do
-    game_mode = GameMode.crazy_color_match
-    game_mode.to_json
-  end
-
-  get "/game_modes/death_color_match" do
-    game_mode = GameMode.death_color_match
-    game_mode.to_json
+  get "/game_modes/ranking" do
+    game_modes = GameMode.ranking
+    game_modes.to_json
   end
 
   post "/player_scores" do
@@ -71,7 +31,7 @@ class ApplicationController < Sinatra::Base
       high_score: params[:high_score],
       game_result: params[:game_result],
       date: params[:date],
-      time: params[:date],
+      time: params[:time],
       game_mode_id: params[:game_mode_id]
     )
     player_score.to_json
