@@ -1,5 +1,6 @@
 body {
   margin: 0;
+  padding: 0;
   font-family: 'Orbitron', sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -57,7 +58,7 @@ code {
 }
 
 .navbar {
-  padding: 10px 40px;
+  padding: 2.5px;
   background: transparent;
   text-align: justify;
   font-family: 'Press Start 2P', cursive;
@@ -72,13 +73,18 @@ code {
   padding-left: 50px;
 }
 
+.high-score-icon {
+  margin-top: 10px;
+  margin-right: 10px;
+}
+
 .menu-page {
   font-family: 'Press Start 2P', cursive;
-  margin-top: 75px;
+
 }
 
 .menu-link {
-  padding: 10px;
+  padding: 2px;
   text-decoration: none;
   color: white;
 }
@@ -111,6 +117,7 @@ code {
 }
 
 .threexthree-tile-container {
+  margin-top: 50px;
   justify-content: center;
   display: grid;
   grid-template-columns: auto auto auto;
@@ -137,6 +144,7 @@ code {
 }
 
 .fourxfour-tile-container {
+  margin-top: 50px;
   justify-content: center;
   display: grid;
   grid-template-columns: auto auto auto auto;
@@ -163,6 +171,7 @@ code {
 }
 
 .fivebyfive-tile-container {
+  margin-top: 50px;
   justify-content: center;
   display: grid;
   grid-template-columns: auto auto auto auto auto;
@@ -454,23 +463,23 @@ code {
 .player-score-title {
   position: relative;
   justify-content: center;
-  top: 600px;
+  top: 530px;
 }
 
 .player-score-container {
   position: absolute;
-  top: 850px;
+  top: 750px;
   display: flex;
   width: 200vh;
   overflow-x: scroll;
-
 }
 
 .player-score-card {
   margin: 10px;
   flex-basis: 200px;
-	flex-grow: 0;
+  flex-grow: 0;
 	flex-shrink: 0;
+  margin-bottom: 50px;
 }
 
 .modal {
@@ -634,15 +643,37 @@ $in-w: $n-char*($char-w + $gap);
 }
  
 .game-mode-container{
-  padding: 20px;
-  position: absolute; top:200px;
+  padding:20px;
+  position: absolute; top:150px;
   background: linear-gradient(45deg, transparent 5%, #FB9300 5%);
   box-shadow: 6px 0px 0px #00E6F6;
- 
- 
 }
- 
 
+.game-mode-card {
+  cursor: default;
+}
+
+.selected-game-mode-card {
+  animation: pulse 3s infinite;
+}
+
+@keyframes pulse {
+  0% {
+  transform: scale(1);
+  text-shadow: 2px 2px #2FA4FF;
+  }
+  
+  50% {
+  transform: scale(1.05);
+  text-shadow: 4px 4px  #2FA4FF;
+  }
+  
+  100% {
+  transform: scale(1);
+  text-shadow: 2px 2px #2FA4FF;
+  }
+  }
+ 
 .lboard_wrap{
 	position: absolute;
 	left: 250px;
@@ -661,7 +692,7 @@ $in-w: $n-char*($char-w + $gap);
 }
  
 .top-ranked-players{
-  position:absolute; left:800px; top:190px;
+  position:absolute; left:800px; top:150px;
   width: 500px;
   height: 500px;
  
@@ -697,9 +728,8 @@ $duration: 15s;
 }
  
 .ticker-wrap {
- 
   position: relative;
-  bottom: 0;
+  bottom: 30px;
   width: 100%;
   overflow: hidden;
   height: 4rem;

@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import EmojiEventsIcon from '@mui/icons-material/EmojiEvents';
 
 
-function Navbar() {
+function Navbar({logo}) {
   return (
     <nav className="navbar">
       <Link style={{ textDecoration: "none", color: "white" }} to="/">
@@ -15,7 +15,8 @@ function Navbar() {
           <span class="stalk"></span>
         </button>
       </Link>
-      <h1>Brain Fumble</h1>
+      
+      <h1>Brain Fumble<img style={{height: "40px"}}src={logo}></img></h1>
       <Link style={{ textDecoration: "none", color: "white" }} to="/highscores">
         <EmojiEventsIcon className="high-score-icon" sx={{ fontSize: 50 }}/>
       </Link>

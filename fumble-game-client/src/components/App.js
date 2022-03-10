@@ -12,16 +12,17 @@ import ColorMatch from "./ColorMatch"
 import CrazyColorMatch from "./CrazyColorMatch"
 import DeathColorMatch from "./DeathColorMatch"
 import HighScores from "./HighScores";
+import appLogo from "../assets/logo.png"
 
 function App() {
   return (
     <div className="">
 
-      <Navbar/>
+      <Navbar logo={appLogo}/>
 
       <Switch>
         <Route exact path="/">
-          <Menu />
+          <Menu logo={appLogo}/>
         </Route>
         <Route path="/threebythreesequence">
           <ThreeByThreeSequence />

@@ -9,7 +9,7 @@ class GameMode < ActiveRecord::Base
 
     def self.ranking
         GameMode.all.map do |gamemode|
-            gamemode.player_scores.order(high_score: :desc).limit(3)
+            gamemode.player_scores.order(high_score: :desc).limit(10)
         end
     end
 end

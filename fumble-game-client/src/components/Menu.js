@@ -1,9 +1,10 @@
 import React from 'react'
 import {Link} from "react-router-dom"
 
-function Menu() {
+function Menu({logo}) {
   return (
     <div className="menu-page fade-in">
+      <img style={{height: "200px"}}src={logo}></img>
       <h2>How do you like your brain fumbled?</h2>
     <div className="menu-container">
       <Link to="/threebythreesequence" className="menu-link"><button className="menu-button">Sequence Memory (3x3)</button></Link>

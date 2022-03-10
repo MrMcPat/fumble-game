@@ -11,7 +11,6 @@ function HighScores() {
   const [playerRankings, setPlayerRankings] = useState([])
   const [selectedRanking, setSelectedRanking] = useState([])
  
- 
   const gameMode = ["Sequence Memory 3x3",
   "Sequence Memory 4x4",
   "Sequence Memory 5x5",
@@ -50,6 +49,7 @@ function HighScores() {
     })
     setPlayerRankings(playerRank[0])
     setSelectedRanking(gameMode[id])
+    console.log(selectedRanking)
   }
  
   const playerDataList = playerData.map(player => {
@@ -57,7 +57,7 @@ function HighScores() {
   })
  
   const gameModeList = gameMode.map((game_mode, index) => {
-    return <GameModeList key={index} game_mode={game_mode} index={index} onSelect={handleSelect}/>
+    return <GameModeList key={index} game_mode={game_mode} index={index} selectedRanking={selectedRanking} onSelect={handleSelect}/>
   })
  
   const popGameDataList = popGameData.map(game_mode => {
@@ -66,27 +66,31 @@ function HighScores() {
  
   return (
     <div className="background fade-in">
-      <h1>Leaderboards</h1>    
+        <h1>Leaderboards</h1>    
         <div className="cube"></div>
         <div className="cube"></div>
         <div className="cube"></div>
         <div className="cube"></div>
         <div className="cube"></div>
- 
+        <div className="cube"></div>
+        <div className="cube"></div>
+        <div className="cube"></div>
+        <div className="cube"></div>
+        <div className="cube"></div>
  
          <div className="game-mode-container lboard_wrap">
           <h1>Game Modes</h1>
           {gameModeList}
         </div>
         <div className="ticker-wrap">
-         <div class="ticker">
+         <div className="ticker">
           <ol>
           {popGameDataList}
           </ol>
           </div>
           </div>
           <div className="top-ranked-players">
-            <h1>Top Players</h1>
+            <h1>Top Ten Players</h1>
           <RankList playerRankings={playerRankings} selectedRanking={selectedRanking}/>
           </div>
           <h1 className="player-score-title">Latest Scores</h1>
