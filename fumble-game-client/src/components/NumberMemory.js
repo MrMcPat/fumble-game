@@ -3,7 +3,7 @@ import NumberTile from "./NumberTile"
 import Modal from '@mui/material/Modal'
 import Box from '@mui/material/Box'
 
-function NumberMemory({audioKey, audioBackspace, audioType, audioIncorrect}) {
+function NumberMemory({audioKey, audioBackspace, audioType, audioIncorrect, mute}) {
 const [randomNums, setRandomNums] = useState([])
 const [counter, setCounter] = useState(0)
 const [score, setScore] = useState("")
@@ -57,7 +57,9 @@ useEffect(() => {
 
   function handleSubmit(e) {
     e.preventDefault()
-    new Audio(audioType).play()
+    if (!mute) {
+      new Audio(audioType).play()
+    }
     if (input === randomNums.join("")) {
       if (randomNums.slice(-1).join() == randomNumber) {
         if (randomNumber === 100) {
@@ -82,7 +84,9 @@ useEffect(() => {
       setCounter(0)
       document.body.style.background= "#FF1700"
       setTimeout(() => {document.body.style.background="#2FA4FF"}, 200)
-      new Audio(audioIncorrect).play()
+      if (!mute) {
+        new Audio(audioIncorrect).play()
+      }
     }
     setInput("")
   }
@@ -114,9 +118,13 @@ useEffect(() => {
 
 function handleKeyDown(e) {
   if (e.key === "Backspace") {
-    new Audio(audioBackspace).play()
+    if (!mute) {
+      new Audio(audioBackspace).play()
+    }
   } else {
-    new Audio(audioKey).play()
+    if (!mute) {
+      new Audio(audioKey).play()
+    }
   }
 }
 

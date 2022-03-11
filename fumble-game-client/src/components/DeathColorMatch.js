@@ -3,7 +3,7 @@ import ColorMatchTile from "./ColorMatchTile"
 import Modal from '@mui/material/Modal'
 import Box from '@mui/material/Box'
 
-function DeathColorMatch({audioBlip, audioIncorrect}) {
+function DeathColorMatch({audioBlip, audioIncorrect, mute}) {
     const [randomColor, setRandomColor] = useState("")
     const [randomizedArray, setRandomizedArray] = useState([])
     const [correct, setCorrect] = useState(true)
@@ -45,7 +45,9 @@ function DeathColorMatch({audioBlip, audioIncorrect}) {
             setCorrect(true)
             setCounter(counter + 1)
             setScore(counter+1)
-            new Audio(audioBlip).play()
+            if (!mute) {
+              new Audio(audioBlip).play()
+            }
         } else {
             console.log("nay")
             setRandomizedArray(array)
@@ -54,7 +56,9 @@ function DeathColorMatch({audioBlip, audioIncorrect}) {
             setCounter(0)
             document.body.style.background= "#FF1700"
             setTimeout(() => {document.body.style.background="#2FA4FF"}, 200)
-            new Audio(audioIncorrect).play()
+            if (!mute) {
+              new Audio(audioIncorrect).play()
+            }
         }
     }
 

@@ -1,4 +1,4 @@
-import React from "react"
+import React, {useState} from "react"
 import { Route, Switch } from "react-router-dom"
 import Navbar from "./Navbar"
 import Menu from "./Menu"
@@ -20,44 +20,52 @@ import audioKey from "../assets/zapsplat-key.mp3"
 import audioBackspace from "../assets/zapsplat-backspace.mp3"
 import audioBlip from "../assets/zapsplat-blip.mp3"
 import audioFlash from "../assets/zapsplat-flash.mp3"
+import audioMute from "../assets/zapsplat-mute.mp3"
+import audioUnmute from "../assets/zapsplat-unmute.mp3"
 
 function App() {
+  const [mute, setMute] = useState(false)
+
+  function handleMute() {
+    setMute(mute => !mute)
+  }
+
   return (
     <div className="">
 
-      <Navbar/>
+      <Navbar onMute={handleMute} audioMute={audioMute} audioUnmute={audioUnmute}/>
       <footer>Developed by <a href="https://github.com/MrMcPat">Patrick Liang</a> and <a href="https://github.com/Fjguido">Francis Guido</a>. Logo and FavIcon designed and created by <a href="https://www.instagram.com/all.caffeine.no.sleep/">Vivian Li</a>. Sounds taken from <a href="https://www.zapsplat.com/">https://www.zapsplat.com/</a></footer>
 
       <Switch>
         <Route exact path="/">
-          <Menu logo={appLogo} audioOuch={audioOuch}/>
+          <Menu logo={appLogo} audioOuch={audioOuch} mute={mute}/>
         </Route>
         <Route path="/threebythreesequence">
-          <ThreeByThreeSequence audioFlash={audioFlash} audioIncorrect={audioIncorrect}/>
+          <ThreeByThreeSequence audioFlash={audioFlash} audioIncorrect={audioIncorrect} mute={mute}/>
         </Route>
         <Route path="/fourbyfoursequence">
-          <FourByFourSequence audioFlash={audioFlash} audioIncorrect={audioIncorrect}/>
+          <FourByFourSequence audioFlash={audioFlash} audioIncorrect={audioIncorrect} mute={mute}/>
         </Route>
         <Route path="/fivebyfivesequence">
-          <FiveByFiveSequence audioFlash={audioFlash} audioIncorrect={audioIncorrect}/>
+          <FiveByFiveSequence audioFlash={audioFlash} audioIncorrect={audioIncorrect} mute={mute}/>
         </Route>
         <Route path="/easynumbermemory">
-          <EasyNumberMemory audioKey={audioKey} audioBackspace={audioBackspace} audioType={audioType} audioIncorrect={audioIncorrect}/>
+          <EasyNumberMemory audioKey={audioKey} audioBackspace={audioBackspace} audioType={audioType} audioIncorrect={audioIncorrect} mute={mute}/>
         </Route>
         <Route path="/numbermemory">
-          <NumberMemory audioKey={audioKey} audioType={audioType} audioBackspace={audioBackspace} audioIncorrect={audioIncorrect}/>
+          <NumberMemory audioKey={audioKey} audioType={audioType} audioBackspace={audioBackspace} audioIncorrect={audioIncorrect} mute={mute}/>
         </Route>
         <Route path="/extremenumbermemory">
-          <ExtremeNumberMemory audioKey={audioKey} audioBackspace={audioBackspace} audioType={audioType} audioIncorrect={audioIncorrect}/>
+          <ExtremeNumberMemory audioKey={audioKey} audioBackspace={audioBackspace} audioType={audioType} audioIncorrect={audioIncorrect} mute={mute}/>
         </Route>
         <Route path="/colormatch">
-          <ColorMatch audioBlip={audioBlip} audioIncorrect={audioIncorrect}/>
+          <ColorMatch audioBlip={audioBlip} audioIncorrect={audioIncorrect} mute={mute}/>
         </Route>
         <Route path="/crazycolormatch">
-          <CrazyColorMatch audioBlip={audioBlip} audioIncorrect={audioIncorrect}/>
+          <CrazyColorMatch audioBlip={audioBlip} audioIncorrect={audioIncorrect} mute={mute}/>
         </Route>
         <Route path="/deathcolormatch">
-          <DeathColorMatch audioBlip={audioBlip} audioIncorrect={audioIncorrect}/>
+          <DeathColorMatch audioBlip={audioBlip} audioIncorrect={audioIncorrect} mute={mute}/>
         </Route>
         <Route path="/highscores">
           <HighScores audioIncorrect={audioIncorrect}/>

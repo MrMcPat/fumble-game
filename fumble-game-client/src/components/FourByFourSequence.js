@@ -3,7 +3,7 @@ import FourByFourTile from "./FourByFourTile"
 import Modal from '@mui/material/Modal'
 import Box from '@mui/material/Box'
 
-function FourByFourSequence({audioFlash, audioIncorrect}) {
+function FourByFourSequence({audioFlash, audioIncorrect, mute}) {
   const [randomTile, setRandomTile] = useState()
   const [randomSequence, setRandomSequence] = useState([])
   const [clickedSequence, setClickedSequence] = useState([])
@@ -66,7 +66,9 @@ function FourByFourSequence({audioFlash, audioIncorrect}) {
     setDisable(true)
     setSaveDisable(true)
     setCorrect(true)
-    new Audio(audioFlash).play()
+    if (!mute) {
+      new Audio(audioFlash).play()
+    }
   }
 
   function handleClickedNumber(clickedNum) {
@@ -92,7 +94,9 @@ function FourByFourSequence({audioFlash, audioIncorrect}) {
         setCorrect(false)
         document.body.style.background= "#FF1700"
         setTimeout(() => {document.body.style.background="#2FA4FF"}, 200)
-        new Audio(audioIncorrect).play()
+        if (!mute) {
+          new Audio(audioIncorrect).play()
+        }
       }
     }
   }

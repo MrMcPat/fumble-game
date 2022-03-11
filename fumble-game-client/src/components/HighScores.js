@@ -102,5 +102,4 @@ function HighScores() {
   )
 }
  
- 
 export default HighScores

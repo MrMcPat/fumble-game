@@ -1,10 +1,12 @@
 import React from 'react'
 import {Link} from "react-router-dom"
 
-function Menu({logo, audioOuch}) {
+function Menu({logo, audioOuch, mute}) {
 
   function handleLogoSound() {
-    new Audio(audioOuch).play()
+    if (!mute) {
+      new Audio(audioOuch).play()
+    }
   }
 
   return (

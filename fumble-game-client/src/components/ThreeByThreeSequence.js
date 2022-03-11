@@ -3,7 +3,7 @@ import ThreeByThreeTile from './ThreeByThreeTile'
 import Modal from '@mui/material/Modal'
 import Box from '@mui/material/Box'
 
-function ThreeByThreeSequence({audioFlash, audioIncorrect}) {
+function ThreeByThreeSequence({audioFlash, audioIncorrect, mute}) {
   const [randomTile, setRandomTile] = useState()
   const [randomSequence, setRandomSequence] = useState([])
   const [clickedSequence, setClickedSequence] = useState([])
@@ -64,7 +64,9 @@ function ThreeByThreeSequence({audioFlash, audioIncorrect}) {
     setDisable(true)
     setSaveDisable(true)
     setCorrect(true)
-    new Audio(audioFlash).play()
+    if (!mute) {
+      new Audio(audioFlash).play()
+    }
   }
 
   function handleClickedNumber(clickedNum) {
@@ -90,7 +92,9 @@ function ThreeByThreeSequence({audioFlash, audioIncorrect}) {
         setCorrect(false)
         document.body.style.background= "#FF1700"
         setTimeout(() => {document.body.style.background="#2FA4FF"}, 200)
-        new Audio(audioIncorrect).play()
+        if (!mute) {
+          new Audio(audioIncorrect).play()
+        }
       }
     }
   }
