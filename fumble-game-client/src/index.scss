@@ -48,6 +48,21 @@ code {
   }
 }
 
+@keyframes wrongAnimate {
+  0% {
+    transform: scale(1);
+    background: #94DAFF;
+  }
+  50% {
+    transform: scale(1.05);
+    background: #f8adad;
+  }
+  100% {
+    transform: scale(1);
+    background: #94DAFF;
+  }
+}
+
 .fade-in {
   animation: fadeIn 1s ease;
   animation-fill-mode: forwards;

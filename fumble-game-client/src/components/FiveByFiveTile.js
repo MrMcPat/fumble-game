@@ -1,6 +1,6 @@
 import React from "react";
 
-function FiveByFiveTile({ tileNumber, randomTile, disable, onClickedNumber, toggle}) {
+function FiveByFiveTile({ tileNumber, randomTile, disable, onClickedNumber, correct, toggle}) {
   const animate = tileNumber === randomTile ? "randomAnimate 0.5s" : ""
 
   function handleTileClick() {
@@ -10,7 +10,7 @@ function FiveByFiveTile({ tileNumber, randomTile, disable, onClickedNumber, togg
   return (
     <button
       style={{
-        animation: animate,
+        animation: correct ? animate : "wrongAnimate 0.5s",
       }}
       disabled={!disable}
       className={`fivebyfive-tile`}

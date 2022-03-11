@@ -122,7 +122,7 @@ function FourByFourSequence({audioFlash, audioIncorrect}) {
 }
 
   const tileGrid = tileCount.map(tile => {
-    return <FourByFourTile key={tile} tileNumber={tile} randomTile={randomTile} randomSequence={randomSequence} disable={disable} onClickedNumber={handleClickedNumber} onRandomNumber={handleRandomNumber} toggle={toggle}/>
+    return <FourByFourTile key={tile} tileNumber={tile} randomTile={randomTile} randomSequence={randomSequence} disable={disable} onClickedNumber={handleClickedNumber} onRandomNumber={handleRandomNumber} correct={correct} toggle={toggle}/>
   })
 
   return (

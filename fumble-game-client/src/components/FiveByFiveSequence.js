@@ -120,7 +120,7 @@ function FiveByFiveSequence({audioFlash, audioIncorrect}) {
 }
 
   const tileGrid = tileCount.map(tile => {
-    return <FiveByFiveTile key={tile} tileNumber={tile} randomTile={randomTile} randomSequence={randomSequence} disable={disable} onClickedNumber={handleClickedNumber} onRandomNumber={handleRandomNumber} toggle={toggle}/>
+    return <FiveByFiveTile key={tile} tileNumber={tile} randomTile={randomTile} randomSequence={randomSequence} disable={disable} onClickedNumber={handleClickedNumber} onRandomNumber={handleRandomNumber} correct={correct} toggle={toggle}/>
   })
 
   return (

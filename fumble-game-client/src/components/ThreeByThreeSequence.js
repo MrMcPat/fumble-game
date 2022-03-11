@@ -120,7 +120,7 @@ function ThreeByThreeSequence({audioFlash, audioIncorrect}) {
   }
 
   const tileGrid = tileCount.map(tile => {
-    return <ThreeByThreeTile key={tile} tileNumber={tile} randomTile={randomTile} randomSequence={randomSequence} disable={disable} onClickedNumber={handleClickedNumber} onRandomNumber={handleRandomNumber} toggle={toggle}/>
+    return <ThreeByThreeTile key={tile} tileNumber={tile} randomTile={randomTile} randomSequence={randomSequence} disable={disable} onClickedNumber={handleClickedNumber} onRandomNumber={handleRandomNumber} correct={correct} toggle={toggle}/>
   })
 
   return (
