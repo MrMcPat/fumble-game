@@ -688,7 +688,7 @@ $in-w: $n-char*($char-w + $gap);
 }
 
 .game-mode-card {
-  cursor: default;
+  cursor: pointer;
 }
 
 .selected-game-mode-card {

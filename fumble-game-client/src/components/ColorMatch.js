@@ -111,7 +111,6 @@ function ColorMatch({audioBlip, audioIncorrect}) {
         {tileGrid}
      </div>
     </div>
-
   )
 }
 
