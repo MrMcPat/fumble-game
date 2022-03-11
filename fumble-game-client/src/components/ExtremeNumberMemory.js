@@ -3,7 +3,7 @@ import ExtremeNumberTile from "./ExtremeNumberTile"
 import Modal from '@mui/material/Modal'
 import Box from '@mui/material/Box'
 
-function NumberMemory() {
+function ExtremeNumberMemory({audioType, audioIncorrect}) {
 const [randomNums, setRandomNums] = useState([])
 const [counter, setCounter] = useState(0)
 const [score, setScore] = useState("")
@@ -57,9 +57,7 @@ useEffect(() => {
 
   function handleSubmit(e) {
     e.preventDefault()
-    if (player.length === 0) {
-      alert("Please enter a name!")
-    } else {
+    new Audio(audioType).play()
     if (input === randomNums.join("")) {
       if (randomNums.slice(-1).join() == randomNumber) {
         if (randomNumber === 225) {
@@ -84,13 +82,17 @@ useEffect(() => {
       setCounter(0)
       document.body.style.background= "#FF1700"
       setTimeout(() => {document.body.style.background="#2FA4FF"}, 200)
+      new Audio(audioIncorrect).play()
     }
     setInput("")
   }
-}
+
 
   function handleSubmitScore(e) {
     e.preventDefault()
+    if (player.length === 0) {
+      alert("Please enter a name!")
+    } else {
     fetch("http://localhost:9292/player_scores", {
       method: "POST",
       headers: {
@@ -109,6 +111,7 @@ useEffect(() => {
     .then(data => console.log(data))
     handleClose()
   }
+}
 
 const tileGrid = tileCount.map(tile => {
   return <ExtremeNumberTile key={tile} tileNumber={tile} randomNums={randomNums}/>
@@ -147,4 +150,4 @@ const tileGrid = tileCount.map(tile => {
   )
 }
 
-export default NumberMemory
+export default ExtremeNumberMemory

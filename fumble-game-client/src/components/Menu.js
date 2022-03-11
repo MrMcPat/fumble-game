@@ -1,10 +1,15 @@
 import React from 'react'
 import {Link} from "react-router-dom"
 
-function Menu({logo}) {
+function Menu({logo, audioOuch}) {
+
+  function handleLogoSound() {
+    new Audio(audioOuch).play()
+  }
+
   return (
     <div className="menu-page fade-in">
-      <img style={{height: "200px"}}src={logo}></img>
+      <img style={{height: "200px"}} className="logo" onClick={handleLogoSound} src={logo}></img>
       <h2>How do you like your brain fumbled?</h2>
     <div className="menu-container">
       <Link to="/threebythreesequence" className="menu-link"><button className="menu-button">Sequence Memory (3x3)</button></Link>

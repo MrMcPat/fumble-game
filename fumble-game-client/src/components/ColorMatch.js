@@ -3,7 +3,7 @@ import ColorMatchTile from "./ColorMatchTile"
 import Modal from '@mui/material/Modal'
 import Box from '@mui/material/Box'
 
-function ColorMatch() {
+function ColorMatch({audioBlip, audioIncorrect}) {
     const [randomColor, setRandomColor] = useState("")
     const [randomizedArray, setRandomizedArray] = useState([])
     const [correct, setCorrect] = useState(true)
@@ -45,6 +45,7 @@ function ColorMatch() {
             setCorrect(true)
             setCounter(counter + 1)
             setScore(counter+1)
+            new Audio(audioBlip).play()
         } else {
             console.log("nay")
             setRandomizedArray(array)
@@ -53,6 +54,7 @@ function ColorMatch() {
             setCounter(0)
             document.body.style.background= "#FF1700"
             setTimeout(() => {document.body.style.background="#2FA4FF"}, 200)
+            new Audio(audioIncorrect).play()
         }
     }
 

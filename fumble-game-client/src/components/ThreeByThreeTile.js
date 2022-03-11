@@ -1,6 +1,6 @@
 import React from "react";
 
-function ThreeByThreeTile({ tileNumber, randomTile, disable, onClickedNumber, toggle }) {
+function ThreeByThreeTile({ tileNumber, randomTile, disable, onClickedNumber, toggle}) {
 const animate = tileNumber === randomTile ? "randomAnimate 0.5s" : ""
 
   function handleTileClick() {

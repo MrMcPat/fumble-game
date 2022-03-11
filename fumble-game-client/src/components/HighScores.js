@@ -78,7 +78,7 @@ function HighScores() {
         <div className="cube"></div>
         <div className="cube"></div>
  
-         <div className="game-mode-container lboard_wrap">
+         <div className="game-mode-container">
           <h1>Game Modes</h1>
           {gameModeList}
         </div>

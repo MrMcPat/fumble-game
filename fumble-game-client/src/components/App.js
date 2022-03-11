@@ -11,48 +11,53 @@ import ExtremeNumberMemory from "./ExtremeNumberMemory"
 import ColorMatch from "./ColorMatch"
 import CrazyColorMatch from "./CrazyColorMatch"
 import DeathColorMatch from "./DeathColorMatch"
-import HighScores from "./HighScores";
+import HighScores from "./HighScores"
 import appLogo from "../assets/logo.png"
+import audioIncorrect from "../assets/zapsplat-incorrect.mp3"
+import audioOuch from "../assets/zapsplat-ouch.mp3"
+import audioType from "../assets/zapsplat-type.mp3"
+import audioBlip from "../assets/zapsplat-blip.mp3"
+import audioFlash from "../assets/zapsplat-flash.mp3"
 
 function App() {
   return (
     <div className="">
 
-      <Navbar logo={appLogo}/>
+      <Navbar/>
 
       <Switch>
         <Route exact path="/">
-          <Menu logo={appLogo}/>
+          <Menu logo={appLogo} audioOuch={audioOuch}/>
         </Route>
         <Route path="/threebythreesequence">
-          <ThreeByThreeSequence />
+          <ThreeByThreeSequence audioFlash={audioFlash} audioIncorrect={audioIncorrect}/>
         </Route>
         <Route path="/fourbyfoursequence">
-          <FourByFourSequence />
+          <FourByFourSequence audioFlash={audioFlash} audioIncorrect={audioIncorrect}/>
         </Route>
         <Route path="/fivebyfivesequence">
-          <FiveByFiveSequence />
+          <FiveByFiveSequence audioFlash={audioFlash} audioIncorrect={audioIncorrect}/>
         </Route>
         <Route path="/easynumbermemory">
-          <EasyNumberMemory />
+          <EasyNumberMemory audioType={audioType} audioIncorrect={audioIncorrect}/>
         </Route>
         <Route path="/numbermemory">
-          <NumberMemory />
+          <NumberMemory audioType={audioType} audioIncorrect={audioIncorrect}/>
         </Route>
         <Route path="/extremenumbermemory">
-          <ExtremeNumberMemory />
+          <ExtremeNumberMemory audioType={audioType} audioIncorrect={audioIncorrect}/>
         </Route>
         <Route path="/colormatch">
-          <ColorMatch />
+          <ColorMatch audioBlip={audioBlip} audioIncorrect={audioIncorrect}/>
         </Route>
         <Route path="/crazycolormatch">
-          <CrazyColorMatch />
+          <CrazyColorMatch audioBlip={audioBlip} audioIncorrect={audioIncorrect}/>
         </Route>
         <Route path="/deathcolormatch">
-          <DeathColorMatch />
+          <DeathColorMatch audioBlip={audioBlip} audioIncorrect={audioIncorrect}/>
         </Route>
         <Route path="/highscores">
-          <HighScores />
+          <HighScores audioIncorrect={audioIncorrect}/>
         </Route>
       </Switch>
     </div>

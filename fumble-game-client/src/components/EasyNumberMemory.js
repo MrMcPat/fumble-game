@@ -3,7 +3,7 @@ import EasyNumberTile from "./EasyNumberTile"
 import Modal from '@mui/material/Modal'
 import Box from '@mui/material/Box'
 
-function EasyNumberMemory() {
+function EasyNumberMemory({audioType, audioIncorrect}) {
 const [randomNums, setRandomNums] = useState([])
 const [counter, setCounter] = useState(0)
 const [score, setScore] = useState("")
@@ -56,6 +56,7 @@ useEffect(() => {
 
   function handleSubmit(e) {
     e.preventDefault()
+    new Audio(audioType).play()
     if (input === randomNums.join("")) {
       if (randomNums.slice(-1).join() == randomNumber) {
         if (randomNumber === 49) {
@@ -80,6 +81,7 @@ useEffect(() => {
       setCounter(0)
       document.body.style.background= "#FF1700"
       setTimeout(() => {document.body.style.background="#2FA4FF"}, 200)
+      new Audio(audioIncorrect).play()
     }
     setInput("")
   }

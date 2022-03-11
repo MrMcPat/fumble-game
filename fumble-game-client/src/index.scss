@@ -35,11 +35,16 @@ code {
 
 @keyframes randomAnimate {
   0% {
+    transform: scale(1);
     background: #94DAFF;
   }
-  100% {
+  50% {
+    transform: scale(1.05);
     background: #FBF8F1;
-
+  }
+  100% {
+    transform: scale(1);
+    background: #94DAFF;
   }
 }
 
@@ -73,9 +78,39 @@ code {
   padding-left: 50px;
 }
 
+.logo:hover {
+  animation: sway 1s infinite;
+}
+
+.logo:active {
+  opacity: 0.5;
+}
+
 .high-score-icon {
   margin-top: 10px;
   margin-right: 10px;
+}
+
+.high-score-icon:hover {
+  animation: sway 2s infinite;
+}
+
+@keyframes sway {
+  0% {
+    transform: rotate(-10deg);
+  }
+  25% {
+    transform: rotate(10deg);
+  }
+  50% {
+    transform: rotate(-10deg);
+  }
+  75% {
+    transform: rotate(10deg);
+  }
+  100% {
+    transform: rotate(-10deg);
+  }
 }
 
 .menu-page {
@@ -644,9 +679,12 @@ $in-w: $n-char*($char-w + $gap);
  
 .game-mode-container{
   padding:20px;
-  position: absolute; top:150px;
   background: linear-gradient(45deg, transparent 5%, #FB9300 5%);
   box-shadow: 6px 0px 0px #00E6F6;
+  position: absolute;
+  margin-left: 250px;
+	border-radius: 0px;
+  top: 150px;
 }
 
 .game-mode-card {
@@ -674,12 +712,6 @@ $in-w: $n-char*($char-w + $gap);
   }
   }
  
-.lboard_wrap{
-	position: absolute;
-	left: 250px;
-	border-radius: 0px;
-}
- 
  
 .most-pop-game-container{
   display: inline;
@@ -692,10 +724,10 @@ $in-w: $n-char*($char-w + $gap);
 }
  
 .top-ranked-players{
-  position:absolute; left:800px; top:150px;
-  width: 500px;
+  float: right;
+  margin-right: 200px;
+  width: 650px;
   height: 500px;
- 
 }
  
 * { box-sizing: border-box; }
