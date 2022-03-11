@@ -24,6 +24,7 @@ function App() {
     <div className="">
 
       <Navbar/>
+      <footer>Developed by <a href="https://github.com/MrMcPat">Patrick Liang</a> and <a href="https://github.com/Fjguido">Francis Guido</a>. Logo and FavIcon designed and created by <a href="https://www.instagram.com/all.caffeine.no.sleep/">Vivian Li</a>.</footer>
 
       <Switch>
         <Route exact path="/">
