@@ -4,7 +4,6 @@ function ColorMatchTile({tileColor, onClickedTile}) {
 
     function handleClick() {
         onClickedTile(tileColor)
-
     }
 
   return (
