@@ -1,0 +1,23 @@
+{
+  "files": {
+    "main.css": "/fumble-game/static/css/main.69f33ed9.css",
+    "main.js": "/fumble-game/static/js/main.96f14d45.js",
+    "static/media/logo.png": "/fumble-game/static/media/logo.6b9072f856dadea4bf58.png",
+    "static/media/zapsplat-unmute.mp3": "/fumble-game/static/media/zapsplat-unmute.4222bd234b174e540bee.mp3",
+    "static/media/zapsplat-mute.mp3": "/fumble-game/static/media/zapsplat-mute.cee8b68fa1028230a8c6.mp3",
+    "static/media/zapsplat-ouch.mp3": "/fumble-game/static/media/zapsplat-ouch.1ff02d57737d15202a1d.mp3",
+    "static/media/zapsplat-flash.mp3": "/fumble-game/static/media/zapsplat-flash.cbbbf3ba73dac97bc896.mp3",
+    "static/media/zapsplat-type.mp3": "/fumble-game/static/media/zapsplat-type.b203649f5528aade44b9.mp3",
+    "static/media/zapsplat-incorrect.mp3": "/fumble-game/static/media/zapsplat-incorrect.887a702e0e2a598a80c2.mp3",
+    "static/media/zapsplat-blip.mp3": "/fumble-game/static/media/zapsplat-blip.e57698f1c9c0cdbb0d74.mp3",
+    "static/media/zapsplat-backspace.mp3": "/fumble-game/static/media/zapsplat-backspace.f710f48afa65472cf177.mp3",
+    "static/media/zapsplat-key.mp3": "/fumble-game/static/media/zapsplat-key.84e87b52e006b803ca43.mp3",
+    "index.html": "/fumble-game/index.html",
+    "main.69f33ed9.css.map": "/fumble-game/static/css/main.69f33ed9.css.map",
+    "main.96f14d45.js.map": "/fumble-game/static/js/main.96f14d45.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.69f33ed9.css",
+    "static/js/main.96f14d45.js"
+  ]
+}
