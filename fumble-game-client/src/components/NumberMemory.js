@@ -3,7 +3,7 @@ import NumberTile from "./NumberTile"
 import Modal from '@mui/material/Modal'
 import Box from '@mui/material/Box'
 
-function NumberMemory({audioType, audioIncorrect}) {
+function NumberMemory({audioKey, audioBackspace, audioType, audioIncorrect}) {
 const [randomNums, setRandomNums] = useState([])
 const [counter, setCounter] = useState(0)
 const [score, setScore] = useState("")
@@ -112,6 +112,14 @@ useEffect(() => {
   }
 }
 
+function handleKeyDown(e) {
+  if (e.key === "Backspace") {
+    new Audio(audioBackspace).play()
+  } else {
+    new Audio(audioKey).play()
+  }
+}
+
 const tileGrid = tileCount.map(tile => {
   return <NumberTile key={tile} tileNumber={tile} randomNums={randomNums}/>
 })
@@ -138,7 +146,7 @@ const tileGrid = tileCount.map(tile => {
           </Box>
       </Modal>
       <form onSubmit={handleSubmit}>
-        <input className="game-input" autoComplete="off" label="Enter your number..." value={input} onChange={e => setInput(e.target.value)}></input>
+        <input className="game-input" autoComplete="off" label="Enter your number..." value={input} onChange={e => setInput(e.target.value)} onKeyDown={handleKeyDown}></input>
         <input style={{display: "none"}}disabled={!disable} type="submit"></input>
       </form>
       <div className="massive-tile-container">

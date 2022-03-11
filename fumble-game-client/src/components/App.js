@@ -16,6 +16,8 @@ import appLogo from "../assets/logo.png"
 import audioIncorrect from "../assets/zapsplat-incorrect.mp3"
 import audioOuch from "../assets/zapsplat-ouch.mp3"
 import audioType from "../assets/zapsplat-type.mp3"
+import audioKey from "../assets/zapsplat-key.mp3"
+import audioBackspace from "../assets/zapsplat-backspace.mp3"
 import audioBlip from "../assets/zapsplat-blip.mp3"
 import audioFlash from "../assets/zapsplat-flash.mp3"
 
@@ -40,13 +42,13 @@ function App() {
           <FiveByFiveSequence audioFlash={audioFlash} audioIncorrect={audioIncorrect}/>
         </Route>
         <Route path="/easynumbermemory">
-          <EasyNumberMemory audioType={audioType} audioIncorrect={audioIncorrect}/>
+          <EasyNumberMemory audioKey={audioKey} audioBackspace={audioBackspace} audioType={audioType} audioIncorrect={audioIncorrect}/>
         </Route>
         <Route path="/numbermemory">
-          <NumberMemory audioType={audioType} audioIncorrect={audioIncorrect}/>
+          <NumberMemory audioKey={audioKey} audioType={audioType} audioBackspace={audioBackspace} audioIncorrect={audioIncorrect}/>
         </Route>
         <Route path="/extremenumbermemory">
-          <ExtremeNumberMemory audioType={audioType} audioIncorrect={audioIncorrect}/>
+          <ExtremeNumberMemory audioKey={audioKey} audioBackspace={audioBackspace} audioType={audioType} audioIncorrect={audioIncorrect}/>
         </Route>
         <Route path="/colormatch">
           <ColorMatch audioBlip={audioBlip} audioIncorrect={audioIncorrect}/>
