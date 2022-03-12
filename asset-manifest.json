@@ -1,6 +1,6 @@
 {
   "files": {
-    "main.css": "/fumble-game/static/css/main.69f33ed9.css",
+    "main.css": "/fumble-game/static/css/main.0ab8508d.css",
     "main.js": "/fumble-game/static/js/main.96f14d45.js",
     "static/media/logo.png": "/fumble-game/static/media/logo.6b9072f856dadea4bf58.png",
     "static/media/zapsplat-unmute.mp3": "/fumble-game/static/media/zapsplat-unmute.4222bd234b174e540bee.mp3",
@@ -13,11 +13,11 @@
     "static/media/zapsplat-backspace.mp3": "/fumble-game/static/media/zapsplat-backspace.f710f48afa65472cf177.mp3",
     "static/media/zapsplat-key.mp3": "/fumble-game/static/media/zapsplat-key.84e87b52e006b803ca43.mp3",
     "index.html": "/fumble-game/index.html",
-    "main.69f33ed9.css.map": "/fumble-game/static/css/main.69f33ed9.css.map",
+    "main.0ab8508d.css.map": "/fumble-game/static/css/main.0ab8508d.css.map",
     "main.96f14d45.js.map": "/fumble-game/static/js/main.96f14d45.js.map"
   },
   "entrypoints": [
-    "static/css/main.69f33ed9.css",
+    "static/css/main.0ab8508d.css",
     "static/js/main.96f14d45.js"
   ]
 }
