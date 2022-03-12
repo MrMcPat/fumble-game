@@ -80,19 +80,19 @@ code {
 .navbar {
   padding: 2.5px;
   background: transparent;
-  text-align: justify;
+  text-align: center;
   font-family: 'Press Start 2P', cursive;
   display: flex;
   flex-direction: row;
-  justify-content: space-between;
+  justify-content: center;
 }
 
 .navbar h1 {
+  padding-right: 300px;
   display: inline;
   color: white;
-  padding-left: 280px;
   flex-basis: 200px;
-  flex-grow: 3;
+  flex-grow: 2;
 	flex-shrink: 0;
 }
 
