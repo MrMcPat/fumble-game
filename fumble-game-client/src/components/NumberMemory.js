@@ -97,8 +97,8 @@ useEffect(() => {
       alert("Please enter a name!")
     } else {
     fetch("https://fumble-game-server.herokuapp.com/player_scores", {
-      mode: "no-cors",
       method: "POST",
+      mode: "no-cors",
       headers: {
         "Content-Type": "application/json"
       },
