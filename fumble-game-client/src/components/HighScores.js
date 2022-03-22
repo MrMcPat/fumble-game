@@ -23,13 +23,13 @@ function HighScores() {
   ]
  
   useEffect(() => {
-    fetch("http://localhost:9292/player_scores")
+    fetch("https://fumble-game-server.herokuapp.com/player_scores")
     .then(resp => resp.json())
     .then(data => setPlayerData(data))
   }, [])
  
   useEffect(() => {
-    fetch("http://localhost:9292/game_modes/ranking")
+    fetch("https://fumble-game-server.herokuapp.com/game_modes/ranking")
     .then(resp => resp.json())
     .then(data => {setRankData(data)
     setPlayerRankings(data[0])
@@ -38,7 +38,7 @@ function HighScores() {
   }, [])
  
   useEffect(() => {
-    fetch("http://localhost:9292//game_modes/game_mode_popularity")
+    fetch("https://fumble-game-server.herokuapp.com/game_modes/game_mode_popularity")
     .then(resp => resp.json())
     .then(data => setPopGameData(data))
   }, [])
