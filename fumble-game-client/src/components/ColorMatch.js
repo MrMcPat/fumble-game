@@ -68,6 +68,7 @@ function ColorMatch({audioBlip, audioIncorrect, mute}) {
         alert("Please enter a name!")
       } else {
       fetch("https://fumble-game-server.herokuapp.com/player_scores", {
+        mode: "no-cors",
         method: "POST",
         headers: {
           "Content-Type": "application/json"
