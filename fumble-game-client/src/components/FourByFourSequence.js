@@ -106,7 +106,7 @@ function FourByFourSequence({audioFlash, audioIncorrect, mute}) {
     if (player.length === 0) {
       alert("Please enter a name!")
     } else {
-    fetch("http://localhost:9292/player_scores", {
+    fetch("https://fumble-game-server.herokuapp.com/player_scores", {
       method: "POST",
       headers: {
         "Content-Type": "application/json"
