@@ -69,7 +69,6 @@ function CrazyColorMatch({audioBlip, audioIncorrect, mute}) {
       } else {
       fetch("https://fumble-game-server.herokuapp.com/player_scores", {
         method: "POST",
-        mode: "no-cors",
         headers: {
           "Content-Type": "application/json"
         },
