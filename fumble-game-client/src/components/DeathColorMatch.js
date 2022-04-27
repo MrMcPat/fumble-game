@@ -77,7 +77,7 @@ function DeathColorMatch({audioBlip, audioIncorrect, mute}) {
           high_score: score,
           date: (new Date().getMonth()+1)+'-'+new Date().getDate()+'-'+new Date().getFullYear(),
           time: new Date().getHours() + ":" + String(new Date().getMinutes()).padStart(2, '0'),
-          game_mode_id: 9
+          game_mode_id: 144
         })
       })
       .then(resp => resp.json())
