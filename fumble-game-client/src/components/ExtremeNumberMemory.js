@@ -108,7 +108,7 @@ useEffect(() => {
         game_result: number,
         date: (new Date().getMonth()+1)+'-'+new Date().getDate()+'-'+new Date().getFullYear(),
         time: new Date().getHours() + ":" + new Date().getMinutes(),
-        game_mode_id: 141
+        game_mode_id: 150
       })
     })
     .then(resp => resp.json())

@@ -114,7 +114,7 @@ function ThreeByThreeSequence({audioFlash, audioIncorrect, mute}) {
         high_score: score-1,
         date: (new Date().getMonth()+1)+'/'+new Date().getDate()+'/'+new Date().getFullYear(),
         time: new Date().getHours() + ":" + String(new Date().getMinutes()).padStart(2, '0'),
-        game_mode_id: 136
+        game_mode_id: 145
       })
     })
     .then(resp => resp.json())
